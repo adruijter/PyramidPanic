@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class ScoreScene
+    public class ScoreScene : IState
     {
         //Fields
         private PyramidPanic game;

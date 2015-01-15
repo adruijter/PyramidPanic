@@ -22,6 +22,9 @@ namespace PyramidPanic
         private LoadScene loadScene;
         private ScoreScene scoreScene;
         private StartScene startScene;
+        private LevelEditorScene levelEditorScene;
+
+        private List<IState> sceneList;
         private IState iState;
         
 
@@ -43,14 +46,25 @@ namespace PyramidPanic
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.sceneList = new List<IState>();
+
             this.playScene = new PlayScene(this);
             this.quitscene = new QuitScene(this);
             this.helpScene = new HelpScene(this);
             this.loadScene = new LoadScene(this);
             this.scoreScene = new ScoreScene(this);
             this.startScene = new StartScene(this);
+            this.levelEditorScene = new LevelEditorScene(this);
+           
+            this.sceneList.Add(this.startScene);
+            this.sceneList.Add(this.playScene);
+            this.sceneList.Add(this.helpScene);
+            this.sceneList.Add(this.loadScene);
+            this.sceneList.Add(this.scoreScene);
+            this.sceneList.Add(this.quitscene);
+            this.sceneList.Add(this.levelEditorScene);
 
-            this.iState = quitscene;
+            this.iState = this.sceneList[0];
         }
 
         protected override void UnloadContent()

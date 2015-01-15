@@ -12,13 +12,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class LevelEditorScene
+    public class LevelEditorScene : IState
     {
         //Fields
         private PyramidPanic game;
 
         //Properties
-
+         
 
         //Constructor
         public LevelEditorScene(PyramidPanic game)
