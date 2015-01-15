@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class HelpScene
+    public class LevelEditorScene
     {
         //Fields
         private PyramidPanic game;
@@ -21,7 +21,7 @@ namespace PyramidPanic
 
 
         //Constructor
-        public HelpScene(PyramidPanic game)
+        public LevelEditorScene(PyramidPanic game)
         {
             this.game = game;
         }
@@ -35,7 +35,7 @@ namespace PyramidPanic
         //Draw
         public void Draw(GameTime gameTime)
         {
-            this.game.GraphicsDevice.Clear(Color.Red);
+            this.game.GraphicsDevice.Clear(Color.Salmon);
         }
     }
 }

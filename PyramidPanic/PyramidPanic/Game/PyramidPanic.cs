@@ -13,14 +13,16 @@ namespace PyramidPanic
 {
    public class PyramidPanic : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        PlayScene playScene;
-        QuitScene quitscene;
-        HelpScene helpScene;
-        LoadScene loadScene;
-        ScoreScene scoreScene;
-        StartScene startScene;
+        //Fields
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+        private PlayScene playScene;
+        private QuitScene quitscene;
+        private HelpScene helpScene;
+        private LoadScene loadScene;
+        private ScoreScene scoreScene;
+        private StartScene startScene;
+        private IState iState;
         
 
         public PyramidPanic()
@@ -35,7 +37,6 @@ namespace PyramidPanic
         
         protected override void Initialize()
         {
-            
             base.Initialize();
         }
 
@@ -48,6 +49,8 @@ namespace PyramidPanic
             this.loadScene = new LoadScene(this);
             this.scoreScene = new ScoreScene(this);
             this.startScene = new StartScene(this);
+
+            this.iState = quitscene;
         }
 
         protected override void UnloadContent()
@@ -59,16 +62,9 @@ namespace PyramidPanic
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
+                this.Exit();            
 
-            this.playScene.Update(gameTime);
-            this.quitscene.Update(gameTime);
-            this.helpScene.Update(gameTime);
-            this.loadScene.Update(gameTime);
-            this.scoreScene.Update(gameTime);
-            this.startScene.Update(gameTime);
-
-            // this.state.Update(gameTime);
+            this.iState.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -76,14 +72,9 @@ namespace PyramidPanic
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            this.playScene.Draw(gameTime);
-            this.quitscene.Draw(gameTime);
-            this.helpScene.Draw(gameTime);
-            this.loadScene.Draw(gameTime);
-            this.scoreScene.Draw(gameTime);
-            this.startScene.Draw(gameTime);
+            
+            this.iState.Draw(gameTime);
 
-            // this.state.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

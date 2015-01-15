@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class QuitScene
+    public class QuitScene : IState
     {
         //Fields
         private PyramidPanic game;

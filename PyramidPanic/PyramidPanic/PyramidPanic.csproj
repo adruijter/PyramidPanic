@@ -107,9 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="PyramidPanic.cs" />
+    <Compile Include="Game\Program.cs" />
+    <Compile Include="Game\PyramidPanic.cs" />
+    <Compile Include="Scenes\LevelEditorScene\LevelEditorScene.cs" />
     <Compile Include="Scenes\StartScene\StartScene.cs" />
     <Compile Include="Scenes\ScoreScene\ScoreScene.cs" />
     <Compile Include="Scenes\LoadScene\LoadScene.cs" />
