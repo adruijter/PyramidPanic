@@ -16,6 +16,12 @@ namespace PyramidPanic
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         PlayScene playScene;
+        QuitScene quitscene;
+        HelpScene helpScene;
+        LoadScene loadScene;
+        ScoreScene scoreScene;
+        StartScene startScene;
+        
 
         public PyramidPanic()
         {
@@ -37,6 +43,11 @@ namespace PyramidPanic
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.playScene = new PlayScene(this);
+            this.quitscene = new QuitScene(this);
+            this.helpScene = new HelpScene(this);
+            this.loadScene = new LoadScene(this);
+            this.scoreScene = new ScoreScene(this);
+            this.startScene = new StartScene(this);
         }
 
         protected override void UnloadContent()
@@ -51,6 +62,13 @@ namespace PyramidPanic
                 this.Exit();
 
             this.playScene.Update(gameTime);
+            this.quitscene.Update(gameTime);
+            this.helpScene.Update(gameTime);
+            this.loadScene.Update(gameTime);
+            this.scoreScene.Update(gameTime);
+            this.startScene.Update(gameTime);
+
+            // this.state.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -59,6 +77,13 @@ namespace PyramidPanic
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             this.playScene.Draw(gameTime);
+            this.quitscene.Draw(gameTime);
+            this.helpScene.Draw(gameTime);
+            this.loadScene.Draw(gameTime);
+            this.scoreScene.Draw(gameTime);
+            this.startScene.Draw(gameTime);
+
+            // this.state.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

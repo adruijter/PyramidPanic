@@ -110,7 +110,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PyramidPanic.cs" />
-    <Compile Include="Scenes\PlayScene.cs" />
+    <Compile Include="Scenes\StartScene\StartScene.cs" />
+    <Compile Include="Scenes\ScoreScene\ScoreScene.cs" />
+    <Compile Include="Scenes\LoadScene\LoadScene.cs" />
+    <Compile Include="Scenes\HelpScene\HelpScene.cs" />
+    <Compile Include="Scenes\QuitScene\QuitScene.cs" />
+    <Compile Include="Scenes\PlayScene\PlayScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameThumbnail.png" />
