@@ -24,6 +24,9 @@ namespace PyramidPanic
         private StartScene startScene;
         private LevelEditorScene levelEditorScene;
 
+        KeyboardState ks, oks;
+        int sceneListKey = 0;
+
         private List<IState> sceneList;
         private IState iState;
         
@@ -64,7 +67,7 @@ namespace PyramidPanic
             this.sceneList.Add(this.quitscene);
             this.sceneList.Add(this.levelEditorScene);
 
-            this.iState = this.sceneList[0];
+            this.iState = this.sceneList[this.sceneListKey];
         }
 
         protected override void UnloadContent()
@@ -76,7 +79,29 @@ namespace PyramidPanic
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();            
+                this.Exit();
+
+            ks = Keyboard.GetState();
+            if (ks.IsKeyDown(Keys.Right) && oks.IsKeyUp(Keys.Right))
+            {
+                if (this.sceneListKey < 6)
+                {
+                    this.sceneListKey++;
+                }
+
+                this.iState = this.sceneList[this.sceneListKey];
+            }
+
+            if (ks.IsKeyDown(Keys.Right) && oks.IsKeyUp(Keys.Right))
+            {
+                if (this.sceneListKey < 6)
+                {
+                    this.sceneListKey++;
+                }
+
+                this.iState = this.sceneList[this.sceneListKey];
+            }
+            oks = ks;
 
             this.iState.Update(gameTime);
 
