@@ -29,7 +29,12 @@ namespace PyramidPanic
 
         private List<IState> sceneList;
         private IState iState;
-        
+
+        //Properties
+        public SpriteBatch SpriteBatch
+        {
+            get { return this.spriteBatch; }
+        }        
 
         public PyramidPanic()
         {
@@ -92,15 +97,17 @@ namespace PyramidPanic
                 this.iState = this.sceneList[this.sceneListKey];
             }
 
-            if (ks.IsKeyDown(Keys.Right) && oks.IsKeyUp(Keys.Right))
+            if (ks.IsKeyDown(Keys.Left) && oks.IsKeyUp(Keys.Left))
             {
-                if (this.sceneListKey < 6)
+                if (this.sceneListKey > 0)
                 {
-                    this.sceneListKey++;
+                    this.sceneListKey--;
                 }
 
                 this.iState = this.sceneList[this.sceneListKey];
             }
+
+            
             oks = ks;
 
             this.iState.Update(gameTime);
@@ -111,8 +118,10 @@ namespace PyramidPanic
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+
+            this.spriteBatch.Begin();
             this.iState.Draw(gameTime);
+            this.spriteBatch.End();
 
             base.Draw(gameTime);
         }

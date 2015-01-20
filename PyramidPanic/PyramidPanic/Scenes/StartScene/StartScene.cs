@@ -16,6 +16,8 @@ namespace PyramidPanic
     {
         //Fields
         private PyramidPanic game;
+        private Image background;
+
 
         //Properties
 
@@ -24,6 +26,8 @@ namespace PyramidPanic
         public StartScene(PyramidPanic game)
         {
             this.game = game;
+            this.background = new Image(this.game, @"StartScenePics\Background", Vector2.Zero);
+
         }
 
         // Update
@@ -36,6 +40,7 @@ namespace PyramidPanic
         public void Draw(GameTime gameTime)
         {
             this.game.GraphicsDevice.Clear(Color.SandyBrown);
+            this.background.Draw(gameTime);
         }
     }
 }
