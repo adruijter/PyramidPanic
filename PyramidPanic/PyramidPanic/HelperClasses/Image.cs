@@ -18,12 +18,22 @@ namespace PyramidPanic
         private Vector2 position;
         private PyramidPanic game;
         private Rectangle rectangle;
+        private Color color = Color.White;
+
        
         //Properties
         public Rectangle Rectangle
         {
             get { return this.rectangle; }
         }
+
+        public Color Color
+        {
+            get { return this.color; }
+            set { this.color = value; }
+        }
+
+
 
         //Constructor
         public Image(PyramidPanic game, string pictureName, Vector2 position)
@@ -43,7 +53,7 @@ namespace PyramidPanic
         //Draw method
         public void Draw(GameTime gameTime)
         {
-            this.game.SpriteBatch.Draw(this.texture, this.rectangle, Color.White);
+            this.game.SpriteBatch.Draw(this.texture, this.rectangle, this.color);
         }
     }
 }

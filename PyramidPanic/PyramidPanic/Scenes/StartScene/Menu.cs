@@ -82,13 +82,31 @@ namespace PyramidPanic
         {
             if (this.start.Rectangle.Intersects(Input.MouseRectangle))
             {
-                this.game.Exit();
+                this.start.Color = Color.Gold;
             }
-            /*
-            if else()
+            else if (this.help.Rectangle.Intersects(Input.MouseRectangle))
             {
-                this.game.Exit();
-            }*/
+                this.help.Color = Color.Gold;
+            }
+            else if (this.scores.Rectangle.Intersects(Input.MouseRectangle))
+            {
+                this.scores.Color = Color.Gold;
+            }
+            else if (this.quit.Rectangle.Intersects(Input.MouseRectangle))
+            {
+                this.quit.Color = Color.Gold;
+            }
+            else if (this.editor.Rectangle.Intersects(Input.MouseRectangle))
+            {
+                this.editor.Color = Color.Gold;
+            }
+            else
+            {
+                foreach (Image button in this.buttonList)
+                {
+                    button.Color = Color.White;
+                }
+            }
         }
 
         //Draw
