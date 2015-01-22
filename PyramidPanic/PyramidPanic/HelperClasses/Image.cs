@@ -18,8 +18,12 @@ namespace PyramidPanic
         private Vector2 position;
         private PyramidPanic game;
         private Rectangle rectangle;
+       
         //Properties
-
+        public Rectangle Rectangle
+        {
+            get { return this.rectangle; }
+        }
 
         //Constructor
         public Image(PyramidPanic game, string pictureName, Vector2 position)

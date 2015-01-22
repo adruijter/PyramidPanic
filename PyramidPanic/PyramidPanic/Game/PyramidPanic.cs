@@ -86,6 +86,8 @@ namespace PyramidPanic
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            Input.Update(gameTime);
+
             ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Right) && oks.IsKeyUp(Keys.Right))
             {

@@ -37,7 +37,7 @@ namespace PyramidPanic
         // Update
         public void Update(GameTime gameTime)
         {
-
+            this.menu.Update(gameTime);
         }
 
         //Draw
