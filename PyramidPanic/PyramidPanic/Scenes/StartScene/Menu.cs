@@ -44,12 +44,15 @@ namespace PyramidPanic
 
         private void LoadContent()
         {
-            this.start = new Image(this.game, @"StartScenePics\Button_start",
-                                            new Vector2(this.offsetLeft, this.offsetDown));
+            this.buttonList = new List<Image>();
+
+            this.buttonList.Add(this.start = new Image(this.game, @"StartScenePics\Button_start",
+                                                       new Vector2(this.offsetLeft, this.offsetDown)));
+            
             this.help = new Image(this.game, @"StartScenePics\Button_help",
-                                            new Vector2(this.offsetLeft + 
-                                                        this.buttonWidth +
-                                                        this.spacing, this.offsetDown));
+                                            new Vector2(this.offsetLeft +
+                                                        1 * (this.buttonWidth + this.spacing),
+                                                        this.offsetDown));
             this.scores = new Image(this.game, @"StartScenePics\Button_scores",
                                             new Vector2(this.offsetLeft +
                                                         2 * (this.buttonWidth + this.spacing),
