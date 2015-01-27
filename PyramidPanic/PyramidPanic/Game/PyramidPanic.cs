@@ -48,6 +48,26 @@ namespace PyramidPanic
         {
             get { return this.helpScene; }
         }
+        public LoadScene LoadScene
+        {
+            get { return this.loadScene; }
+        }
+        public QuitScene QuitScene
+        {
+            get { return this.quitscene; }
+        }
+        public StartScene StartScene
+        {
+            get { return this.startScene; }
+        }
+        public LevelEditorScene LevelEditorScene
+        {
+            get { return this.levelEditorScene;  }
+        }
+        public ScoreScene ScoreScene
+        {
+            get { return this.scoreScene; }
+        }
         
 
         public PyramidPanic()

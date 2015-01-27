@@ -14,6 +14,9 @@ namespace PyramidPanic
     public class Menu
     {
         //Fields
+        private enum Button { Start, Help, Scores, Quit, Editor };
+        private Button buttonActive = Button.Editor;
+
         private PyramidPanic game;
         private Image start, load, help, scores, quit, editor;
         private List<Image> buttonList;
@@ -80,6 +83,13 @@ namespace PyramidPanic
         //Update
         public void Update(GameTime gameTime)
         {
+            //als je op de right knop drukt wordt de knop rechts naast de actieve Goudkleurig
+            
+            
+            
+            //Als je op de left knop drukt wordt de knop links naast de actieve knop goedkleurig
+            
+            
             if (this.start.Rectangle.Intersects(Input.MouseRectangle))
             {
                 if (Input.MouseClickLeft())
@@ -93,20 +103,31 @@ namespace PyramidPanic
                 if (Input.MouseClickLeft())
                 {
                     this.game.IState = this.game.HelpScene;
-                }              
-                
+                }
                 this.help.Color = Color.Gold;
             }
             else if (this.scores.Rectangle.Intersects(Input.MouseRectangle))
             {
+                if (Input.MouseClickLeft())
+                {
+                    this.game.IState = this.game.ScoreScene;
+                }
                 this.scores.Color = Color.Gold;
             }
             else if (this.quit.Rectangle.Intersects(Input.MouseRectangle))
             {
+                if (Input.MouseClickLeft())
+                {
+                    this.game.IState = this.game.QuitScene;
+                }
                 this.quit.Color = Color.Gold;
             }
             else if (this.editor.Rectangle.Intersects(Input.MouseRectangle))
             {
+                if (Input.MouseClickLeft())
+                {
+                    this.game.IState = this.game.LevelEditorScene;
+                }
                 this.editor.Color = Color.Gold;
             }
             else
@@ -114,6 +135,25 @@ namespace PyramidPanic
                 foreach (Image button in this.buttonList)
                 {
                     button.Color = Color.White;
+                }
+
+                switch (this.buttonActive)
+                {
+                    case Button.Start:
+                        this.start.Color = Color.Gold;
+                        break;
+                    case Button.Help:
+                        this.help.Color = Color.Gold;
+                        break;
+                    case Button.Quit:
+                        this.quit.Color = Color.Gold;
+                        break;
+                    case Button.Scores:
+                        this.scores.Color = Color.Gold;
+                        break;
+                    case Button.Editor:
+                        this.editor.Color = Color.Gold;
+                        break;
                 }
             }
         }

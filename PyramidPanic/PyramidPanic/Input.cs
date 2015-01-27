@@ -15,6 +15,7 @@ namespace PyramidPanic
     {
         //Fields
         private static MouseState ms, oms;
+        private static KeyboardState ks, oks;
         private static Rectangle mouseRectangle;
 
         //Properties
@@ -32,6 +33,7 @@ namespace PyramidPanic
         static Input()
         {
             ms = Mouse.GetState();
+            ks = Keyboard.GetState();
             mouseRectangle = new Rectangle(ms.X, ms.Y, 1, 1);
         }
 
@@ -42,12 +44,19 @@ namespace PyramidPanic
         public static void Update(GameTime gameTime)
         {
             oms = ms;
+            oks = ks;
             ms = Mouse.GetState();
+            ks = Keyboard.GetState();
         }
 
         public static bool MouseClickLeft()
         {
-            if (ms.LeftButton == ButtonState.Pressed)
+            return (ms.LeftButton == ButtonState.Pressed);
+        }
+
+        public static bool EdgeDetectKeyDown(Keys key)
+        {
+            if (ks.IsKeyDown(key) && oks.IsKeyUp(key))
             {
                 return true;
             }
