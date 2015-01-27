@@ -15,7 +15,8 @@ namespace PyramidPanic
     {
         //Fields
         private enum Button { Start, Help, Scores, Quit, Editor };
-        private Button buttonActive = Button.Editor;
+                            //  0      1      2      3      4
+        private Button buttonActive = Button.Start;
 
         private PyramidPanic game;
         private Image start, load, help, scores, quit, editor;
@@ -84,7 +85,14 @@ namespace PyramidPanic
         public void Update(GameTime gameTime)
         {
             //als je op de right knop drukt wordt de knop rechts naast de actieve Goudkleurig
-            
+            if (Input.EdgeDetectKeyDown(Keys.Right))
+            {
+                if ((int)this.buttonActive < 4)
+                {
+                    this.buttonActive++;
+                }
+            }
+
             
             
             //Als je op de left knop drukt wordt de knop links naast de actieve knop goedkleurig

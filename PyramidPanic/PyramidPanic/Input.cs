@@ -56,14 +56,7 @@ namespace PyramidPanic
 
         public static bool EdgeDetectKeyDown(Keys key)
         {
-            if (ks.IsKeyDown(key) && oks.IsKeyUp(key))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (ks.IsKeyDown(key) && oks.IsKeyUp(key));
         }
 
     }
