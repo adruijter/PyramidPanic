@@ -72,8 +72,8 @@ namespace PyramidPanic
                                                         @"StartScenePics\Button_leveleditor",
                                                         new Vector2(this.offsetLeft +
                                                         4 * (this.buttonWidth + this.spacing),
-                                                        this.offsetDown)));           
-            
+                                                        this.offsetDown)));
+            this.start.Color = Color.Gold;
         }
 
 
@@ -82,10 +82,19 @@ namespace PyramidPanic
         {
             if (this.start.Rectangle.Intersects(Input.MouseRectangle))
             {
+                if (Input.MouseClickLeft())
+                {
+                   this.game.IState = this.game.PlayScene;
+                }                
                 this.start.Color = Color.Gold;
             }
             else if (this.help.Rectangle.Intersects(Input.MouseRectangle))
             {
+                if (Input.MouseClickLeft())
+                {
+                    this.game.IState = this.game.HelpScene;
+                }              
+                
                 this.help.Color = Color.Gold;
             }
             else if (this.scores.Rectangle.Intersects(Input.MouseRectangle))

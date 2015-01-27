@@ -45,5 +45,17 @@ namespace PyramidPanic
             ms = Mouse.GetState();
         }
 
+        public static bool MouseClickLeft()
+        {
+            if (ms.LeftButton == ButtonState.Pressed)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

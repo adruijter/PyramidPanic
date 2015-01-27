@@ -34,7 +34,21 @@ namespace PyramidPanic
         public SpriteBatch SpriteBatch
         {
             get { return this.spriteBatch; }
-        }        
+        }
+        public IState IState
+        {
+            get { return this.iState; }
+            set { this.iState = value; }
+        }
+        public PlayScene PlayScene
+        {
+            get { return this.playScene; }
+        }
+        public HelpScene HelpScene
+        {
+            get { return this.helpScene; }
+        }
+        
 
         public PyramidPanic()
         {
@@ -88,6 +102,7 @@ namespace PyramidPanic
 
             Input.Update(gameTime);
 
+            /*
             ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Right) && oks.IsKeyUp(Keys.Right))
             {
@@ -111,6 +126,7 @@ namespace PyramidPanic
 
             
             oks = ks;
+            */
 
             this.iState.Update(gameTime);
 
