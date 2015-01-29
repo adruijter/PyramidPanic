@@ -93,7 +93,13 @@ namespace PyramidPanic
                 }
             }
 
-            
+            if (Input.EdgeDetectKeyDown(Keys.Left))
+            {
+                if (this.buttonActive > 0)
+                {
+                    this.buttonActive--;
+                }
+            }           
             
             //Als je op de left knop drukt wordt de knop links naast de actieve knop goedkleurig
             
@@ -103,7 +109,9 @@ namespace PyramidPanic
                 if (Input.MouseClickLeft())
                 {
                    this.game.IState = this.game.PlayScene;
-                }                
+                }
+                ResetButtonColor();
+                this.buttonActive = Button.Start;
                 this.start.Color = Color.Gold;
             }
             else if (this.help.Rectangle.Intersects(Input.MouseRectangle))
@@ -112,6 +120,8 @@ namespace PyramidPanic
                 {
                     this.game.IState = this.game.HelpScene;
                 }
+                ResetButtonColor();
+                this.buttonActive = Button.Help;
                 this.help.Color = Color.Gold;
             }
             else if (this.scores.Rectangle.Intersects(Input.MouseRectangle))
@@ -120,6 +130,8 @@ namespace PyramidPanic
                 {
                     this.game.IState = this.game.ScoreScene;
                 }
+                ResetButtonColor();
+                this.buttonActive = Button.Scores;
                 this.scores.Color = Color.Gold;
             }
             else if (this.quit.Rectangle.Intersects(Input.MouseRectangle))
@@ -128,6 +140,8 @@ namespace PyramidPanic
                 {
                     this.game.IState = this.game.QuitScene;
                 }
+                ResetButtonColor();
+                this.buttonActive = Button.Quit;
                 this.quit.Color = Color.Gold;
             }
             else if (this.editor.Rectangle.Intersects(Input.MouseRectangle))
@@ -136,33 +150,66 @@ namespace PyramidPanic
                 {
                     this.game.IState = this.game.LevelEditorScene;
                 }
+                ResetButtonColor();
+                this.buttonActive = Button.Editor;
                 this.editor.Color = Color.Gold;
             }
             else
             {
-                foreach (Image button in this.buttonList)
-                {
-                    button.Color = Color.White;
-                }
+                ResetButtonColor();
 
                 switch (this.buttonActive)
                 {
                     case Button.Start:
+                        if (Input.EdgeDetectKeyDown(Keys.Enter))
+                        {
+                            //Als dit zo is dat code voor het veranderen van scene
+                            this.game.IState = this.game.PlayScene ;
+                        }  
                         this.start.Color = Color.Gold;
                         break;
                     case Button.Help:
+                        if (Input.EdgeDetectKeyDown(Keys.Enter))
+                        {
+                            //Als dit zo is dat code voor het veranderen van scene
+                            this.game.IState = this.game.HelpScene;
+                        }
                         this.help.Color = Color.Gold;
                         break;
                     case Button.Quit:
+                        if (Input.EdgeDetectKeyDown(Keys.Enter))
+                        {
+                            //Als dit zo is dat code voor het veranderen van scene
+                            this.game.IState = this.game.QuitScene;
+                        }
                         this.quit.Color = Color.Gold;
                         break;
                     case Button.Scores:
+                        //Hier komt code om te detecteren of er op de entertoets gedrukt wordt.
+                        if (Input.EdgeDetectKeyDown(Keys.Enter))
+                        {
+                            //Als dit zo is dat code voor het veranderen van scene
+                            this.game.IState = this.game.ScoreScene;
+                        }                        
                         this.scores.Color = Color.Gold;
                         break;
                     case Button.Editor:
+                        if (Input.EdgeDetectKeyDown(Keys.Enter))
+                        {
+                            //Als dit zo is dat code voor het veranderen van scene
+                            this.game.IState = this.game.LevelEditorScene;
+                        }
                         this.editor.Color = Color.Gold;
                         break;
                 }
+            }
+        }
+
+        private void ResetButtonColor()
+        {
+            foreach (Image button in this.buttonList)
+            {
+                button.Color = Color.White;
             }
         }
 

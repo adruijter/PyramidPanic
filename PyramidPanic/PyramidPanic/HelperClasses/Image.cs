@@ -35,6 +35,8 @@ namespace PyramidPanic
 
 
 
+
+
         //Constructor
         public Image(PyramidPanic game, string pictureName, Vector2 position)
         {
