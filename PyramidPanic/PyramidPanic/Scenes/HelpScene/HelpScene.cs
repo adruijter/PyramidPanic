@@ -17,6 +17,7 @@ namespace PyramidPanic
         //Fields
         private PyramidPanic game;
         private Image helpText;
+        private Vector2 scrollSpeed;
 
         //Properties
 
@@ -26,6 +27,7 @@ namespace PyramidPanic
         {
             this.game = game;
             this.helpText = new Image(this.game, @"HelpScenePics\HelpText", new Vector2(0f, 0f));
+            this.scrollSpeed = new Vector2(0f, 20f);
         }
 
         // Update
@@ -37,7 +39,14 @@ namespace PyramidPanic
             }
             if (Input.LevelDetectKeyDown(Keys.Down))
             {
-                //this.helpText.P
+                if ( this.helpText.Position.Y > (-1000 + 480))
+                this.helpText.Position -= this.scrollSpeed;
+            }
+
+            if (Input.LevelDetectKeyDown(Keys.Up))
+            {
+                if (this.helpText.Position.Y < 0)
+                    this.helpText.Position += this.scrollSpeed;
             }
         }
 

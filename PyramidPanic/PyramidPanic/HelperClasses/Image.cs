@@ -33,6 +33,16 @@ namespace PyramidPanic
             set { this.color = value; }
         }
 
+        public Vector2 Position
+        {
+            get { return this.position; }
+            set { 
+                    this.position = value;
+                    this.rectangle.X = (int)this.position.X;
+                    this.rectangle.Y = (int)this.position.Y;
+                }
+        }
+
 
 
 
