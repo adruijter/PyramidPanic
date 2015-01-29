@@ -24,10 +24,6 @@ namespace PyramidPanic
 
         public void Update(GameTime gameTime)
         {
-            if (Input.EdgeDetectKeyDown(Keys.B))
-            {
-                this.game.IState = this.game.StartScene;
-            }
             this.game.Exit();
         }
 
