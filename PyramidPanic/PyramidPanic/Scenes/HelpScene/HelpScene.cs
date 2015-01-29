@@ -37,17 +37,19 @@ namespace PyramidPanic
             {
                 this.game.IState = this.game.StartScene;
             }
-            if (Input.LevelDetectKeyDown(Keys.Down))
+            if (Input.LevelDetectKeyDown(Keys.Down) || (Input.MouseScroll() == "down"))
             {
                 if ( this.helpText.Position.Y > (-1000 + 480))
                 this.helpText.Position -= this.scrollSpeed;
             }
 
-            if (Input.LevelDetectKeyDown(Keys.Up))
+            if (Input.LevelDetectKeyDown(Keys.Up) || (Input.MouseScroll() == "up"))
             {
                 if (this.helpText.Position.Y < 0)
                     this.helpText.Position += this.scrollSpeed;
             }
+
+            Input.MouseScroll();
         }
 
         //Draw

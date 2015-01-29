@@ -64,5 +64,21 @@ namespace PyramidPanic
             return ks.IsKeyDown(key);
         }
 
+        public static string MouseScroll()
+        {
+            if ((ms.ScrollWheelValue - oms.ScrollWheelValue) > 0 )
+            {
+                return "up";
+            }
+            else if (ms.ScrollWheelValue - oms.ScrollWheelValue < 0)
+            {
+                return "down";
+            }
+            else
+            {
+                return "idle";
+            }
+        }
+
     }
 }
