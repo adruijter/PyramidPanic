@@ -37,6 +37,7 @@ namespace PyramidPanic
             {
                 this.game.IState = this.game.StartScene;
             }
+
             if (Input.LevelDetectKeyDown(Keys.Down) || (Input.MouseScroll() == "down"))
             {
                 if ( this.helpText.Position.Y > (-1000 + 480))

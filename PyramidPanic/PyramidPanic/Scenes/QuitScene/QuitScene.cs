@@ -28,6 +28,7 @@ namespace PyramidPanic
             {
                 this.game.IState = this.game.StartScene;
             }
+            this.game.Exit();
         }
 
         public void Draw(GameTime gameTime)
