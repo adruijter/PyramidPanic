@@ -113,6 +113,7 @@
     <Compile Include="HelperClasses\Image.cs" />
     <Compile Include="Game\IState.cs" />
     <Compile Include="Input\Input.cs" />
+    <Compile Include="Scenes\PlayScene\Level\Level.cs" />
     <Compile Include="Scenes\StartScene\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game\Program.cs" />

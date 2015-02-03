@@ -16,6 +16,7 @@ namespace PyramidPanic
     {
         //Fields
         private PyramidPanic game;
+        private Level level;
 
         //Properties
 
@@ -24,6 +25,7 @@ namespace PyramidPanic
         public PlayScene(PyramidPanic game)
         {
             this.game = game;
+            this.level = new Level(this.game, 0);
         }
 
         // Update
