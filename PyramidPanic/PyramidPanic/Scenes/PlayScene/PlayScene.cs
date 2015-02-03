@@ -41,6 +41,7 @@ namespace PyramidPanic
         public void Draw(GameTime gameTime)
         {
             this.game.GraphicsDevice.Clear(Color.BlanchedAlmond);
+            this.level.Draw(gameTime);
         }
     }
 }

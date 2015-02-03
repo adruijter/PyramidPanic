@@ -20,6 +20,7 @@ namespace PyramidPanic
         private FileStream fileStream;
         private TextReader textReader;
         private List<string> lines;
+        private Block testBlock;
 
         // Properties
         public PyramidPanic Game
@@ -55,21 +56,24 @@ namespace PyramidPanic
                 line = this.textReader.ReadLine();
             }
 
-            foreach (string lineToConsole in this.lines)
-            {
-                Console.WriteLine(lineToConsole);
-            }
+            this.fileStream.Close();
+            this.textReader.Close();
+
+            this.testBlock = new Block(this.game, @"PlayScenePics\Wall2", Vector2.Zero);
 
 
-            
+
         }
 
 
         // Update
 
-
-
         // Draw
+        public void Draw(GameTime gameTime)
+        {
+            this.testBlock.Draw(gameTime);
+        }
+
 
 
         // Helper methods

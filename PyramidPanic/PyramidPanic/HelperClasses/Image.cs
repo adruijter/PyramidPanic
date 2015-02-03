@@ -63,7 +63,7 @@ namespace PyramidPanic
 
 
         //Draw method
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
             this.game.SpriteBatch.Draw(this.texture, this.rectangle, this.color);
         }
