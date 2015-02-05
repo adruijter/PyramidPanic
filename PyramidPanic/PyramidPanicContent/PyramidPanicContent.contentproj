@@ -88,7 +88,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayScenePics\Wall2.png">
+    <Compile Include="Assets\PlayScenePics\Blocks\Wall2.png">
       <Name>Wall2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -108,8 +108,49 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayScenePics\Transparant.png">
+    <Compile Include="Assets\PlayScenePics\Blocks\Transparant.png">
       <Name>Transparant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\PlayScenePics\Blocks\Block.png">
+      <Name>Block</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Assets\PlayScenePics\Blocks\Block_hor.png">
+      <Name>Block_hor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Assets\PlayScenePics\Blocks\Block_vert.png">
+      <Name>Block_vert</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Assets\PlayScenePics\Blocks\Door.png">
+      <Name>Door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Assets\PlayScenePics\Blocks\Wall1.png">
+      <Name>Wall1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\PlayScenePics\Background.png">
+      <Name>Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\PlayScenePics\Treasures\Ankh.png">
+      <Name>Ankh</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

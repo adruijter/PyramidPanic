@@ -23,6 +23,8 @@ namespace PyramidPanic
         private Block testBlock;
         private Block[,] block;
         private int blockWidth;
+        private Image background;
+        private List<Image> treasures;
 
         // Properties
         public PyramidPanic Game
@@ -42,6 +44,7 @@ namespace PyramidPanic
             this.game = game;
             this.levelIndex = levelIndex;
             this.lines = new List<string>();
+            this.treasures = new List<Image>();
             this.Initialize(levelIndex);
         }
 
@@ -52,7 +55,7 @@ namespace PyramidPanic
             this.textReader = new StreamReader(this.fileStream);
             
             string line = this.textReader.ReadLine();
-            int blockWidth = line.Length;
+            this.blockWidth = line.Length;
 
 
             while (line != null)
@@ -65,8 +68,6 @@ namespace PyramidPanic
 
             this.fileStream.Close();
             this.textReader.Close();
-
-            this.testBlock = new Block(this.game, @"PlayScenePics\Wall2", Vector2.Zero);
 
             this.block = new Block[blockWidth, blockHeight];
 
@@ -86,9 +87,21 @@ namespace PyramidPanic
             switch (blockElement)
             {
                 case '1':
-                    return new Block(this.game, @"PlayScenePics\Wall2", new Vector2(x * 32f, y * 32f));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Wall2", new Vector2(x * 32f, y * 32f));
+                case '2':
+                    return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f));
+                case '3':
+                    return new Block(this.game, @"PlayScenePics\Blocks\Door", new Vector2(x * 32f, y * 32f));
+                case '4':
+                    return new Block(this.game, @"PlayScenePics\Blocks\Wall1", new Vector2(x * 32f, y * 32f));
+                case '@':
+                    this.background = new Image(this.game, @"PlayScenePics\Background", new Vector2(0f, 0f));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f));
+                case 'a':
+                    this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Ankh", new Vector2(x * 32f, y * 32f)));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
                 default:
-                    return new Block(this.game, @"PlayScenePics\Transparant", new Vector2(x * 32f, y * 32f));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
             }
 
         }
@@ -98,13 +111,21 @@ namespace PyramidPanic
         // Draw
         public void Draw(GameTime gameTime)
         {
-            this.testBlock.Draw(gameTime);
+            //Dit is de achtergrond
+            this.background.Draw(gameTime);
+
+
             for (int row = 0; row < this.lines.Count; row++)
             {
                 for (int column = 0; column < this.blockWidth; column++)
                 {
                     this.block[column, row].Draw(gameTime);
                 }
+            }
+
+            foreach (Image treasure in this.treasures)
+            {
+                treasure.Draw(gameTime);
             }
         }
 

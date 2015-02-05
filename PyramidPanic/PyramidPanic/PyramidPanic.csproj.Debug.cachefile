@@ -7,6 +7,13 @@ Content\Assets\StartScenePics\Button_quit.xnb
 Content\Assets\StartScenePics\Button_scores.xnb
 Content\Assets\StartScenePics\Button_start.xnb
 Content\Assets\HelpScenePics\HelpText.xnb
-Content\Assets\PlayScenePics\Wall2.xnb
-Content\Assets\PlayScenePics\Transparant.xnb
+Content\Assets\PlayScenePics\Blocks\Wall2.xnb
+Content\Assets\PlayScenePics\Blocks\Transparant.xnb
+Content\Assets\PlayScenePics\Blocks\Block.xnb
+Content\Assets\PlayScenePics\Blocks\Block_hor.xnb
+Content\Assets\PlayScenePics\Blocks\Block_vert.xnb
+Content\Assets\PlayScenePics\Blocks\Door.xnb
+Content\Assets\PlayScenePics\Blocks\Wall1.xnb
+Content\Assets\PlayScenePics\Background.xnb
+Content\Assets\PlayScenePics\Treasures\Ankh.xnb
 Content\Assets\Level\0.txt
