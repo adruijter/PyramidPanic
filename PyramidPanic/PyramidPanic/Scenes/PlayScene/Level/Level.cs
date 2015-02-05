@@ -21,6 +21,8 @@ namespace PyramidPanic
         private TextReader textReader;
         private List<string> lines;
         private Block testBlock;
+        private Block[,] block;
+        private int blockWidth;
 
         // Properties
         public PyramidPanic Game
@@ -48,7 +50,10 @@ namespace PyramidPanic
         {
             this.fileStream = File.OpenRead(@"C:\Users\Arjan de Ruijter\Documents\Visual Studio 2010\Projects\2014-2015\PyramidPanic\PyramidPanic\PyramidPanicContent\Assets\Level\" + levelIndex + ".txt");
             this.textReader = new StreamReader(this.fileStream);
+            
             string line = this.textReader.ReadLine();
+            int blockWidth = line.Length;
+
 
             while (line != null)
             {
@@ -56,15 +61,37 @@ namespace PyramidPanic
                 line = this.textReader.ReadLine();
             }
 
+            int blockHeight = this.lines.Count;
+
             this.fileStream.Close();
             this.textReader.Close();
 
             this.testBlock = new Block(this.game, @"PlayScenePics\Wall2", Vector2.Zero);
 
+            this.block = new Block[blockWidth, blockHeight];
 
-
+            for (int rowNumber = 0; rowNumber < blockHeight; rowNumber++)
+            {
+                for (int columnNumber = 0; columnNumber < blockWidth; columnNumber++)
+                {
+                    Char blockElement = this.lines[rowNumber][columnNumber];
+                    this.block[columnNumber, rowNumber] = this.LoadBlock(blockElement, columnNumber, rowNumber);
+                }
+            }
         }
 
+
+        private Block LoadBlock(Char blockElement, int x, int y)
+        {
+            switch (blockElement)
+            {
+                case '1':
+                    return new Block(this.game, @"PlayScenePics\Wall2", new Vector2(x * 32f, y * 32f));
+                default:
+                    return new Block(this.game, @"PlayScenePics\Transparant", new Vector2(x * 32f, y * 32f));
+            }
+
+        }
 
         // Update
 
@@ -72,6 +99,13 @@ namespace PyramidPanic
         public void Draw(GameTime gameTime)
         {
             this.testBlock.Draw(gameTime);
+            for (int row = 0; row < this.lines.Count; row++)
+            {
+                for (int column = 0; column < this.blockWidth; column++)
+                {
+                    this.block[column, row].Draw(gameTime);
+                }
+            }
         }
 
 
