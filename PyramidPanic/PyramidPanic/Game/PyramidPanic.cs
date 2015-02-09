@@ -23,6 +23,7 @@ namespace PyramidPanic
         private ScoreScene scoreScene;
         private StartScene startScene;
         private LevelEditorScene levelEditorScene;
+        private Scorpion scorpion;
 
         KeyboardState ks, oks;
         int sceneListKey = 0;
@@ -106,6 +107,8 @@ namespace PyramidPanic
             this.sceneList.Add(this.quitscene);
             this.sceneList.Add(this.levelEditorScene);
 
+            this.scorpion = new Scorpion(this, new Vector2(10 * 32f, 7 * 32f));
+
             this.iState = this.sceneList[this.sceneListKey];
         }
 
@@ -159,6 +162,7 @@ namespace PyramidPanic
 
             this.spriteBatch.Begin();
             this.iState.Draw(gameTime);
+            this.scorpion.Draw(gameTime);
             this.spriteBatch.End();
 
             base.Draw(gameTime);
