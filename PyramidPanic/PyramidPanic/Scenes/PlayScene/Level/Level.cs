@@ -98,7 +98,20 @@ namespace PyramidPanic
                     this.background = new Image(this.game, @"PlayScenePics\Background", new Vector2(0f, 0f));
                     return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f));
                 case 'a':
-                    this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Ankh", new Vector2(x * 32f, y * 32f)));
+                    this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Ankh", 
+                                                    new Vector2(x * 32f, y * 32f)));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
+                case 'p':
+                    this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Potion",
+                                                    new Vector2(x * 32f, y * 32f)));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
+                case 'c':
+                    this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Cat",
+                                                    new Vector2(x * 32f, y * 32f)));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
+                case 's':
+                    this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Scarab",
+                                                    new Vector2(x * 32f, y * 32f)));
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
                 default:
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
