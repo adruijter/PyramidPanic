@@ -25,6 +25,7 @@ namespace PyramidPanic
         private int blockWidth;
         private Image background;
         private List<Image> treasures;
+        private List<Scorpion> scorpions;
 
         // Properties
         public PyramidPanic Game
@@ -45,6 +46,7 @@ namespace PyramidPanic
             this.levelIndex = levelIndex;
             this.lines = new List<string>();
             this.treasures = new List<Image>();
+            this.scorpions = new List<Scorpion>();
             this.Initialize(levelIndex);
         }
 
@@ -113,6 +115,9 @@ namespace PyramidPanic
                     this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Scarab",
                                                     new Vector2(x * 32f, y * 32f)));
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
+                case 'S':
+                    this.scorpions.Add(new Scorpion(this.game, new Vector2(x * 32f, y * 32f)));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
                 default:
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f));
             }
@@ -139,6 +144,11 @@ namespace PyramidPanic
             foreach (Image treasure in this.treasures)
             {
                 treasure.Draw(gameTime);
+            }
+
+            foreach (Scorpion scorpion in this.scorpions)
+            {
+                scorpion.Draw(gameTime);
             }
         }
 

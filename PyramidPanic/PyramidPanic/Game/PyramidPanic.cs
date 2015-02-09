@@ -23,7 +23,6 @@ namespace PyramidPanic
         private ScoreScene scoreScene;
         private StartScene startScene;
         private LevelEditorScene levelEditorScene;
-        private Scorpion scorpion;
 
         KeyboardState ks, oks;
         int sceneListKey = 0;
@@ -107,8 +106,6 @@ namespace PyramidPanic
             this.sceneList.Add(this.quitscene);
             this.sceneList.Add(this.levelEditorScene);
 
-            this.scorpion = new Scorpion(this, new Vector2(10 * 32f, 7 * 32f));
-
             this.iState = this.sceneList[this.sceneListKey];
         }
 
@@ -125,32 +122,6 @@ namespace PyramidPanic
 
             Input.Update(gameTime);
 
-            /*
-            ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Right) && oks.IsKeyUp(Keys.Right))
-            {
-                if (this.sceneListKey < 6)
-                {
-                    this.sceneListKey++;
-                }
-
-                this.iState = this.sceneList[this.sceneListKey];
-            }
-
-            if (ks.IsKeyDown(Keys.Left) && oks.IsKeyUp(Keys.Left))
-            {
-                if (this.sceneListKey > 0)
-                {
-                    this.sceneListKey--;
-                }
-
-                this.iState = this.sceneList[this.sceneListKey];
-            }
-
-            
-            oks = ks;
-            */
-
             this.iState.Update(gameTime);
 
             base.Update(gameTime);
@@ -162,7 +133,6 @@ namespace PyramidPanic
 
             this.spriteBatch.Begin();
             this.iState.Draw(gameTime);
-            this.scorpion.Draw(gameTime);
             this.spriteBatch.End();
 
             base.Draw(gameTime);
