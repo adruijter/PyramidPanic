@@ -17,7 +17,11 @@ namespace PyramidPanic
         private Scorpion scorpion;
 
         // Properties
-
+        public Rectangle DestinationRectangle
+        {
+            set { this.destinationRectangle = value; }
+            get { return this.destinationRectangle; }
+        }
 
         // Constructor
         public WalkRight(Scorpion scorpion) : base(scorpion)
@@ -33,6 +37,7 @@ namespace PyramidPanic
         // Update
         public void Update(GameTime gameTime)
         {
+            this.scorpion.Position += new Vector2(1f, 0f);
             base.Update(gameTime);
         }
 

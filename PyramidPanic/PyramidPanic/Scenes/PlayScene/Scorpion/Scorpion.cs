@@ -30,6 +30,12 @@ namespace PyramidPanic
         public Vector2 Position
         {
             get { return this.position; }
+            set { this.position = value;
+                  this.walkRight.DestinationRectangle = new Rectangle((int)this.position.X,
+                                                                      (int)this.position.Y,
+                                                                      this.texture.Width/4,
+                                                                      this.texture.Height);
+                }
         }
         public Texture2D Texture
         {
@@ -42,8 +48,7 @@ namespace PyramidPanic
         {
             this.game = game;
             this.position = position;
-            this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Scorpion\Scorpion");
-            
+            this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Scorpion\Scorpion");          
             
             this.walkRight = new WalkRight(this);
             this.state = this.walkRight;
