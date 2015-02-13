@@ -24,7 +24,6 @@ namespace PyramidPanic
         private StartScene startScene;
         private LevelEditorScene levelEditorScene;
 
-        KeyboardState ks, oks;
         int sceneListKey = 0;
 
         private List<IState> sceneList;

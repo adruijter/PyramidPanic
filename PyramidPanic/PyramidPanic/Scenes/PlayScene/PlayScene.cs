@@ -35,6 +35,8 @@ namespace PyramidPanic
             {
                 this.game.IState = this.game.StartScene;
             }
+
+            this.level.Update(gameTime);
         }
 
         //Draw

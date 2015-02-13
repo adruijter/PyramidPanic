@@ -125,6 +125,13 @@ namespace PyramidPanic
         }
 
         // Update
+        public void Update(GameTime gameTime)
+        {
+            foreach (Scorpion scorpion in this.scorpions)
+            {
+                scorpion.Update(gameTime);
+            }
+        }
 
         // Draw
         public void Draw(GameTime gameTime)

@@ -18,6 +18,7 @@ namespace PyramidPanic
         private Vector2 position;
         private Texture2D texture;
         private Rectangle destinationRectangle, sourceRectangle;
+        private float timer = 0f;
 
         // Properties
 
@@ -36,7 +37,22 @@ namespace PyramidPanic
         }
 
         // Update
-
+        public void Update(GameTime gameTime)
+        {
+            if (this.timer > 5f / 60f)
+            {
+                if (this.sourceRectangle.X < 96)
+                {
+                    this.sourceRectangle.X += 32;
+                }
+                else
+                {
+                    this.sourceRectangle.X = 0;
+                }
+                this.timer = 0f;
+            }
+            this.timer += 1f / 60f;
+        }
 
         // Draw
         public void Draw(GameTime gameTime)
