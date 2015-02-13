@@ -19,6 +19,8 @@ namespace PyramidPanic
         private Texture2D texture;
         private Rectangle destinationRectangle, sourceRectangle;
         private float timer = 0f;
+        private IState state;
+        private WalkRight walkRight;
 
         // Properties
 
@@ -34,6 +36,8 @@ namespace PyramidPanic
                                                       this.texture.Width/4,
                                                       this.texture.Height);
             this.sourceRectangle = new Rectangle(0, 0, this.texture.Width/4, this.texture.Height);
+            this.walkRight = new WalkRight(this);
+            this.state = this.walkRight;
         }
 
         // Update
@@ -58,13 +62,13 @@ namespace PyramidPanic
         public void Draw(GameTime gameTime)
         {
             this.game.SpriteBatch.Draw(this.texture,
-                                       this.destinationRectangle,
-                                       this.sourceRectangle,
-                                       Color.White,
-                                       0f,
-                                       Vector2.Zero,
-                                       SpriteEffects.None,
-                                       0f);                                       
+                                    this.destinationRectangle,
+                                    this.sourceRectangle,
+                                    Color.White,
+                                    0f,
+                                    Vector2.Zero,
+                                    SpriteEffects.None,
+                                    0f);                                  
         }
     }
 }
