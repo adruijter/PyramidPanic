@@ -23,21 +23,24 @@ namespace PyramidPanic
         public WalkRight(Scorpion scorpion) : base(scorpion)
         {
             this.scorpion = scorpion;
+            this.destinationRectangle = new Rectangle((int)this.scorpion.Position.X,
+                                                      (int)this.scorpion.Position.Y,
+                                                      this.scorpion.Texture.Width / 4,
+                                                      this.scorpion.Texture.Height);
+
         }
 
         // Update
         public void Update(GameTime gameTime)
         {
-
+            base.Update(gameTime);
         }
 
 
         // Draw
         public void Draw(GameTime gameTime)
         {
-
+            base.Draw(gameTime);
         }
-
-
     }
 }
