@@ -17,6 +17,8 @@ namespace PyramidPanic
         private Scorpion scorpion;
         protected Rectangle destinationRectangle, sourceRectangle;
         private float timer = 0f;
+        protected SpriteEffects effect = SpriteEffects.None;
+        protected float rotation = 0f;
         
         // Properties
 
@@ -59,9 +61,9 @@ namespace PyramidPanic
                                                 this.destinationRectangle,
                                                 this.sourceRectangle,
                                                 Color.White,
-                                                0f,
+                                                this.rotation,
                                                 Vector2.Zero,
-                                                SpriteEffects.None,
+                                                this.effect,
                                                 0f);        
         }
     }

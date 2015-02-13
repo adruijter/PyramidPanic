@@ -111,6 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="IAnimatedSprite.cs" />
+    <Compile Include="WalkLeft.cs" />
     <Compile Include="Scenes\PlayScene\Block\Block.cs" />
     <Compile Include="HelperClasses\Image.cs" />
     <Compile Include="Game\IState.cs" />

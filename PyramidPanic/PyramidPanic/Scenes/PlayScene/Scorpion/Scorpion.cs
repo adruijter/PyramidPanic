@@ -17,10 +17,12 @@ namespace PyramidPanic
         private PyramidPanic game;
         private Vector2 position;
         private Texture2D texture;
+        private float leftBorder = 32f, rightBorder = 576f;
         
         
-        private IState state;
+        private IAnimatedSprite state;
         private WalkRight walkRight;
+        private WalkLeft walkLeft;
 
         // Properties
         public PyramidPanic Game
@@ -31,7 +33,7 @@ namespace PyramidPanic
         {
             get { return this.position; }
             set { this.position = value;
-                  this.walkRight.DestinationRectangle = new Rectangle((int)this.position.X,
+                  this.state.DestinationRectangle = new Rectangle((int)this.position.X,
                                                                       (int)this.position.Y,
                                                                       this.texture.Width/4,
                                                                       this.texture.Height);
@@ -41,6 +43,29 @@ namespace PyramidPanic
         {
             get { return this.texture; }
         }
+        public float LeftBorder
+        {
+            get { return this.leftBorder; }
+        }
+        public float RightBorder
+        {
+            get { return this.rightBorder; }
+        }
+        public IAnimatedSprite State
+        {
+            set { 
+                    this.state = value;
+                    this.state.Initialize();
+                }
+        }
+        public WalkLeft WalkLeft
+        {
+            get { return this.walkLeft; }
+        }
+        public WalkRight WalkRight
+        {
+            get { return this.walkRight; }
+        }
 
 
         // Constructor
@@ -48,8 +73,8 @@ namespace PyramidPanic
         {
             this.game = game;
             this.position = position;
-            this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Scorpion\Scorpion");          
-            
+            this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Scorpion\Scorpion");
+            this.walkLeft = new WalkLeft(this);
             this.walkRight = new WalkRight(this);
             this.state = this.walkRight;
         }
