@@ -36,7 +36,7 @@ namespace PyramidPanic
 
 
         // Update
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             if (this.timer > 5f / 60f)
             {
@@ -55,7 +55,7 @@ namespace PyramidPanic
 
 
         // Draw
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
             this.scorpion.Game.SpriteBatch.Draw(this.scorpion.Texture,
                                                 this.destinationRectangle,

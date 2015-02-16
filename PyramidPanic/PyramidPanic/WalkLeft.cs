@@ -42,15 +42,22 @@ namespace PyramidPanic
         }
 
         // Update
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
+            if (true) // check of de x-pos groter is dan 32f)
+            {
             this.scorpion.Position -= new Vector2(1f, 0f);
+            }
+            else
+            {
+                //verander van state
+            }
             base.Update(gameTime);
         }
 
 
         // Draw
-        public void Draw(GameTime gameTime)
+        public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
         }

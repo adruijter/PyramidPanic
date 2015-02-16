@@ -17,9 +17,7 @@ namespace PyramidPanic
         private PyramidPanic game;
         private Vector2 position;
         private Texture2D texture;
-        private float leftBorder = 32f, rightBorder = 576f;
-        
-        
+        private float leftBorder = 32f, rightBorder = 576f;       
         private IAnimatedSprite state;
         private WalkRight walkRight;
         private WalkLeft walkLeft;

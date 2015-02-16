@@ -42,7 +42,7 @@ namespace PyramidPanic
         }
 
         // Update
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             if (this.scorpion.Position.X < this.scorpion.RightBorder)
             {
@@ -58,7 +58,7 @@ namespace PyramidPanic
 
 
         // Draw
-        public void Draw(GameTime gameTime)
+        public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
         }
