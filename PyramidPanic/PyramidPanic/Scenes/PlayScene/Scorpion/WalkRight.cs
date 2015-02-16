@@ -46,7 +46,7 @@ namespace PyramidPanic
         {
             if (this.scorpion.Position.X < this.scorpion.RightBorder)
             {
-                this.scorpion.Position += new Vector2(1f, 0f);
+                this.scorpion.Position += this.scorpion.Speed;
             }
             else
             {

@@ -21,6 +21,7 @@ namespace PyramidPanic
         private IAnimatedSprite state;
         private WalkRight walkRight;
         private WalkLeft walkLeft;
+        private Vector2 speed = new Vector2(1f, 0f);
 
         // Properties
         public PyramidPanic Game
@@ -44,10 +45,12 @@ namespace PyramidPanic
         public float LeftBorder
         {
             get { return this.leftBorder; }
+            set { this.leftBorder = value; }
         }
         public float RightBorder
         {
             get { return this.rightBorder; }
+            set { this.rightBorder = value; }
         }
         public IAnimatedSprite State
         {
@@ -63,6 +66,10 @@ namespace PyramidPanic
         public WalkRight WalkRight
         {
             get { return this.walkRight; }
+        }
+        public Vector2 Speed
+        {
+            get { return this.speed; } 
         }
 
 

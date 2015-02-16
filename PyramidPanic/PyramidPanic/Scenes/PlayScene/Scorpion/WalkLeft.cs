@@ -44,13 +44,13 @@ namespace PyramidPanic
         // Update
         public override void Update(GameTime gameTime)
         {
-            if (true) // check of de x-pos groter is dan 32f)
+            if (this.scorpion.Position.X > this.scorpion.LeftBorder) // check of de x-pos groter is dan 32f)
             {
-            this.scorpion.Position -= new Vector2(1f, 0f);
+                this.scorpion.Position -= this.scorpion.Speed;
             }
             else
             {
-                //verander van state
+                this.scorpion.State = this.scorpion.WalkRight;
             }
             base.Update(gameTime);
         }

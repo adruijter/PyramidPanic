@@ -14,15 +14,20 @@ namespace PyramidPanic
     public class Block : Image
     {
         // Fields
-
+        private bool passable;
+        
         // Properties
+        public bool Passable
+        {
+            get { return this.passable; }
+        }
 
 
         // Constructor
-        public Block(PyramidPanic game, string pictureName, Vector2 position)
+        public Block(PyramidPanic game, string pictureName, Vector2 position, bool passable)
             : base(game, pictureName, position)
         {
-
+            this.passable = passable;
         }
 
 
