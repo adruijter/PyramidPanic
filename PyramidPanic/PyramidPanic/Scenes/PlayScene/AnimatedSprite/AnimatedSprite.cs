@@ -14,7 +14,7 @@ namespace PyramidPanic
     public class AnimatedSprite
     {
         // Fields
-        private Scorpion scorpion;
+        private IEntity entity;
         protected Rectangle destinationRectangle, sourceRectangle;
         private float timer = 0f;
         protected SpriteEffects effect = SpriteEffects.None;
@@ -24,13 +24,13 @@ namespace PyramidPanic
 
 
         // Constructor
-        public AnimatedSprite(Scorpion scorpion)
+        public AnimatedSprite(IEntity entity)
         {
-            this.scorpion = scorpion;
+            this.entity = entity;
             this.sourceRectangle = new Rectangle(0,
                                                  0,
-                                                 this.scorpion.Texture.Width / 4,
-                                                 this.scorpion.Texture.Height);
+                                                 this.entity.Texture.Width / 4,
+                                                 this.entity.Texture.Height);
         }
 
 
@@ -57,7 +57,7 @@ namespace PyramidPanic
         // Draw
         public virtual void Draw(GameTime gameTime)
         {
-            this.scorpion.Game.SpriteBatch.Draw(this.scorpion.Texture,
+            this.entity.Game.SpriteBatch.Draw(this.entity.Texture,
                                                 this.destinationRectangle,
                                                 this.sourceRectangle,
                                                 Color.White,

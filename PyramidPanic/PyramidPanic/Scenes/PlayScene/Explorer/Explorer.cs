@@ -11,16 +11,15 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class Scorpion : IEntity
+    public class Explorer : IEntity
     {
         // Fields
         private PyramidPanic game;
         private Vector2 position;
-        private Texture2D texture;
-        private float leftBorder = 32f, rightBorder = 576f;       
+        private Texture2D texture;      
         private IAnimatedSprite state;
-        private WalkRight walkRight;
-        private WalkLeft walkLeft;
+        private ExplorerWalkRight walkRight;
+        //private WalkLeft walkLeft;
         private Vector2 speed = new Vector2(1f, 0f);
 
         // Properties
@@ -42,16 +41,6 @@ namespace PyramidPanic
         {
             get { return this.texture; }
         }
-        public float LeftBorder
-        {
-            get { return this.leftBorder; }
-            set { this.leftBorder = value; }
-        }
-        public float RightBorder
-        {
-            get { return this.rightBorder; }
-            set { this.rightBorder = value; }
-        }
         public IAnimatedSprite State
         {
             set { 
@@ -59,11 +48,12 @@ namespace PyramidPanic
                     this.state.Initialize();
                 }
         }
-        public WalkLeft WalkLeft
+        /*public WalkLeft WalkLeft
         {
             get { return this.walkLeft; }
         }
-        public WalkRight WalkRight
+         */
+        public ExplorerWalkRight WalkRight
         {
             get { return this.walkRight; }
         }
@@ -74,13 +64,13 @@ namespace PyramidPanic
 
 
         // Constructor
-        public Scorpion(PyramidPanic game, Vector2 position)
+        public Explorer(PyramidPanic game, Vector2 position)
         {
             this.game = game;
             this.position = position;
-            this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Scorpion\Scorpion");
-            this.walkLeft = new WalkLeft(this);
-            this.walkRight = new WalkRight(this);
+            this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Explorer\Explorer");
+            //this.walkLeft = new WalkLeft(this);
+            this.walkRight = new ExplorerWalkRight(this);
             this.state = this.walkRight;
         }
 
