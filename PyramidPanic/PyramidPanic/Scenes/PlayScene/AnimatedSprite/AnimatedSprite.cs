@@ -27,7 +27,7 @@ namespace PyramidPanic
         public AnimatedSprite(IEntity entity)
         {
             this.entity = entity;
-            this.sourceRectangle = new Rectangle(0,
+            this.sourceRectangle = new Rectangle(32,
                                                  0,
                                                  this.entity.Texture.Width / 4,
                                                  this.entity.Texture.Height);

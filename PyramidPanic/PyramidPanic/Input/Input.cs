@@ -59,6 +59,11 @@ namespace PyramidPanic
             return (ks.IsKeyDown(key) && oks.IsKeyUp(key));
         }
 
+        public static bool EdgeDetectKeyUp(Keys key)
+        {
+            return (ks.IsKeyUp(key) && oks.IsKeyDown(key));
+        }
+
         public static bool LevelDetectKeyDown(Keys key)
         {
             return ks.IsKeyDown(key);

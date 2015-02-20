@@ -19,6 +19,7 @@ namespace PyramidPanic
         private Texture2D texture;      
         private IAnimatedSprite state;
         private ExplorerWalkRight walkRight;
+        private ExplorerIdle idle;
         //private WalkLeft walkLeft;
         private Vector2 speed = new Vector2(1f, 0f);
 
@@ -57,6 +58,10 @@ namespace PyramidPanic
         {
             get { return this.walkRight; }
         }
+        public ExplorerIdle Idle
+        {
+            get { return this.idle; }
+        }
         public Vector2 Speed
         {
             get { return this.speed; } 
@@ -71,7 +76,8 @@ namespace PyramidPanic
             this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Explorer\Explorer");
             //this.walkLeft = new WalkLeft(this);
             this.walkRight = new ExplorerWalkRight(this);
-            this.state = this.walkRight;
+            this.idle = new ExplorerIdle(this);
+            this.state = this.idle;
         }
 
         // Update
