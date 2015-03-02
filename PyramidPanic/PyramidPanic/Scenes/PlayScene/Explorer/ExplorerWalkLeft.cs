@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class ExplorerIdle : AnimatedSprite, IAnimatedSprite
+    public class ExplorerWalkLeft : AnimatedSprite, IAnimatedSprite
     {
 
         // Fields
@@ -23,19 +23,16 @@ namespace PyramidPanic
             set { this.destinationRectangle = value; }
             get { return this.destinationRectangle; }
         }
-        public SpriteEffects Effect
-        {
-            set { this.effect = value; }
-        }
 
         // Constructor
-        public ExplorerIdle(Explorer explorer) : base(explorer)
+        public ExplorerWalkLeft(Explorer explorer) : base(explorer)
         {
             this.explorer = explorer;
             this.destinationRectangle = new Rectangle((int)this.explorer.Position.X,
                                                       (int)this.explorer.Position.Y,
                                                       this.explorer.Texture.Width / 4,
                                                       this.explorer.Texture.Height);
+            this.effect = SpriteEffects.FlipHorizontally;
 
         }
 
@@ -48,14 +45,13 @@ namespace PyramidPanic
         // Update
         public override void Update(GameTime gameTime)
         {
-            if (Input.EdgeDetectKeyDown(Keys.Right))
+            if (Input.EdgeDetectKeyUp(Keys.Left))
             {
-                this.explorer.State = this.explorer.WalkRight;
+                this.explorer.State = this.explorer.Idle;
+                this.explorer.Idle.Effect = SpriteEffects.FlipHorizontally;
             }
-            if (Input.EdgeDetectKeyDown(Keys.Left))
-            {
-                this.explorer.State = this.explorer.WalkLeft;
-            }
+            this.explorer.Position -= this.explorer.Speed;
+            base.Update(gameTime);
         }
 
 

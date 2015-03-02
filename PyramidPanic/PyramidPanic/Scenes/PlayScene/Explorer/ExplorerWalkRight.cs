@@ -47,6 +47,7 @@ namespace PyramidPanic
             if (Input.EdgeDetectKeyUp(Keys.Right))
             {
                 this.explorer.State = this.explorer.Idle;
+                this.explorer.Idle.Effect = SpriteEffects.None;
             }
             this.explorer.Position += this.explorer.Speed;
             base.Update(gameTime);
