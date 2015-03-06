@@ -27,6 +27,10 @@ namespace PyramidPanic
         {
             set { this.effect = value; }
         }
+        public float Rotation
+        {
+            set { this.rotation = value; }
+        }
 
         // Constructor
         public ExplorerIdle(Explorer explorer) : base(explorer)
@@ -48,13 +52,21 @@ namespace PyramidPanic
         // Update
         public override void Update(GameTime gameTime)
         {
-            if (Input.EdgeDetectKeyDown(Keys.Right))
+            if (Input.LevelDetectKeyDown(Keys.Right))
             {
                 this.explorer.State = this.explorer.WalkRight;
             }
-            if (Input.EdgeDetectKeyDown(Keys.Left))
+            else if (Input.LevelDetectKeyDown(Keys.Left))
             {
                 this.explorer.State = this.explorer.WalkLeft;
+            }
+            else if (Input.LevelDetectKeyDown(Keys.Down))
+            {
+                this.explorer.State = this.explorer.WalkDown;
+            }
+            else if (Input.LevelDetectKeyDown(Keys.Up))
+            {
+                this.explorer.State = this.explorer.WalkUp;
             }
         }
 

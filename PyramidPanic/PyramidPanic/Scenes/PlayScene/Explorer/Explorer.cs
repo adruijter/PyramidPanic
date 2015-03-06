@@ -21,7 +21,9 @@ namespace PyramidPanic
         private ExplorerWalkRight walkRight;
         private ExplorerIdle idle;
         private ExplorerWalkLeft walkLeft;
-        private Vector2 speed = new Vector2(1f, 0f);
+        private ExplorerWalkDown walkDown;
+        private ExplorerWalkUp walkUp;
+        private float speed = 2f;
 
         // Properties
         public PyramidPanic Game
@@ -33,9 +35,9 @@ namespace PyramidPanic
             get { return this.position; }
             set { this.position = value;
                   this.state.DestinationRectangle = new Rectangle((int)this.position.X,
-                                                                      (int)this.position.Y,
-                                                                      this.texture.Width/4,
-                                                                      this.texture.Height);
+                                                                  (int)this.position.Y,
+                                                                  this.texture.Width/4,
+                                                                  this.texture.Height);
                 }
         }
         public Texture2D Texture
@@ -61,7 +63,15 @@ namespace PyramidPanic
         {
             get { return this.idle; }
         }
-        public Vector2 Speed
+        public ExplorerWalkDown WalkDown
+        {
+            get { return this.walkDown; }
+        }
+        public ExplorerWalkUp WalkUp
+        {
+            get { return this.walkUp; }
+        }
+        public float Speed
         {
             get { return this.speed; } 
         }
@@ -76,6 +86,8 @@ namespace PyramidPanic
             this.walkRight = new ExplorerWalkRight(this);
             this.idle = new ExplorerIdle(this);
             this.walkLeft = new ExplorerWalkLeft(this);
+            this.walkDown = new ExplorerWalkDown(this);
+            this.walkUp = new ExplorerWalkUp(this);
             this.state = this.idle;
         }
 

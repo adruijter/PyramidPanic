@@ -38,7 +38,7 @@ namespace PyramidPanic
                 {
                     if ( this.level.Block[i, (int)(scorpion.Position.Y/32f)].Passable == false)
                     {
-                        scorpion.RightBorder = (i - 1) * 32f;
+                        scorpion.RightBorder = i * 32f - 16f ;
                         break;
                     }
                 }
@@ -50,11 +50,11 @@ namespace PyramidPanic
         {
             foreach (Scorpion scorpion in this.level.Scorpions)
             {
-                for (int i = (int)(scorpion.Position.X / 32f); i > 0; i--)
+                for (int i = (int)(scorpion.Position.X / 32f); i >= 0; i--)
                 {
                     if (this.level.Block[i, (int)(scorpion.Position.Y / 32f)].Passable == false)
                     {
-                        scorpion.LeftBorder = (i + 1) * 32f;
+                        scorpion.LeftBorder = (i + 1) * 32f + 16f;
                         break;
                     }
                 }

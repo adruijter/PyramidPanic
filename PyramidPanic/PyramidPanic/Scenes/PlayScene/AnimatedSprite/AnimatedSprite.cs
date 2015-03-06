@@ -19,6 +19,7 @@ namespace PyramidPanic
         private float timer = 0f;
         protected SpriteEffects effect = SpriteEffects.None;
         protected float rotation = 0f;
+        private Vector2 pivot;
         
         // Properties
 
@@ -27,10 +28,12 @@ namespace PyramidPanic
         public AnimatedSprite(IEntity entity)
         {
             this.entity = entity;
+            // De beentjes van de Explorer blijven bij stilstand bij elkaar en niet gespreid
             this.sourceRectangle = new Rectangle(32,
                                                  0,
                                                  this.entity.Texture.Width / 4,
                                                  this.entity.Texture.Height);
+            this.pivot = new Vector2(16f, 16f);
         }
 
 
@@ -62,7 +65,7 @@ namespace PyramidPanic
                                                 this.sourceRectangle,
                                                 Color.White,
                                                 this.rotation,
-                                                Vector2.Zero,
+                                                this.pivot,
                                                 this.effect,
                                                 0f);        
         }

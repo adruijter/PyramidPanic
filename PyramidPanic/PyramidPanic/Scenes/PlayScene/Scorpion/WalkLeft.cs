@@ -31,8 +31,7 @@ namespace PyramidPanic
                                                       (int)this.scorpion.Position.Y,
                                                       this.scorpion.Texture.Width / 4,
                                                       this.scorpion.Texture.Height);
-            this.effect = SpriteEffects.FlipHorizontally;
-            //this.rotation = (float)Math.PI;
+            this.rotation = (float)Math.PI;
         }
 
         public void Initialize()

@@ -1,13 +1,13 @@
-Content\Assets\StartScenePics\Background.xnb
 Content\Assets\StartScenePics\Title.xnb
+Content\Assets\StartScenePics\Background.xnb
 Content\Assets\StartScenePics\Button_help.xnb
 Content\Assets\StartScenePics\Button_leveleditor.xnb
 Content\Assets\StartScenePics\Button_load.xnb
 Content\Assets\StartScenePics\Button_quit.xnb
 Content\Assets\StartScenePics\Button_scores.xnb
 Content\Assets\StartScenePics\Button_start.xnb
-Content\Assets\HelpScenePics\HelpText.xnb
 Content\Assets\PlayScenePics\Blocks\Wall2.xnb
+Content\Assets\HelpScenePics\HelpText.xnb
 Content\Assets\PlayScenePics\Blocks\Transparant.xnb
 Content\Assets\PlayScenePics\Blocks\Block.xnb
 Content\Assets\PlayScenePics\Blocks\Block_hor.xnb

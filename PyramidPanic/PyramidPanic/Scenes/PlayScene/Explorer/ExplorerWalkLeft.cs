@@ -16,6 +16,7 @@ namespace PyramidPanic
 
         // Fields
         private Explorer explorer;
+        private Vector2 speed;
 
         // Properties
         public Rectangle DestinationRectangle
@@ -32,7 +33,8 @@ namespace PyramidPanic
                                                       (int)this.explorer.Position.Y,
                                                       this.explorer.Texture.Width / 4,
                                                       this.explorer.Texture.Height);
-            this.effect = SpriteEffects.FlipHorizontally;
+            this.rotation = (float)Math.PI;
+            this.speed = new Vector2(this.explorer.Speed, 0f);
 
         }
 
@@ -48,9 +50,9 @@ namespace PyramidPanic
             if (Input.EdgeDetectKeyUp(Keys.Left))
             {
                 this.explorer.State = this.explorer.Idle;
-                this.explorer.Idle.Effect = SpriteEffects.FlipHorizontally;
+                this.explorer.Idle.Rotation = (float)Math.PI;
             }
-            this.explorer.Position -= this.explorer.Speed;
+            this.explorer.Position -= this.speed;
             base.Update(gameTime);
         }
 
