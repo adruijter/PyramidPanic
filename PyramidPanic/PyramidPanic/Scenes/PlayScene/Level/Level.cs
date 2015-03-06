@@ -129,7 +129,7 @@ namespace PyramidPanic
                     this.scorpions.Add(new Scorpion(this.game, new Vector2(x * 32f + 16f, y * 32f + 16f)));
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
                 case 'E':
-                    this.explorer = new Explorer(this.game, new Vector2(x * 32f , y * 32f));
+                    this.explorer = new Explorer(this.game, new Vector2(x * 32f + 16f , y * 32f + 16f));
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
                 default:
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
