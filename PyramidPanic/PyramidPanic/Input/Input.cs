@@ -69,6 +69,11 @@ namespace PyramidPanic
             return ks.IsKeyDown(key);
         }
 
+        public static bool LevelDetectKeyUp(Keys key)
+        {
+            return ks.IsKeyUp(key);
+        }
+
         public static string MouseScroll()
         {
             if ((ms.ScrollWheelValue - oms.ScrollWheelValue) > 0 )
