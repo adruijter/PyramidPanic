@@ -63,7 +63,12 @@ namespace PyramidPanic
                     this.explorer.Idle.Rotation = 0f;
                 }
             }
-            this.explorer.Position += this.speed;
+
+            if (ExplorerManager.CollisionDetectExplorerWallsRight())
+            {
+                this.explorer.Position += this.speed;
+            }
+        
             base.Update(gameTime);
         }
 

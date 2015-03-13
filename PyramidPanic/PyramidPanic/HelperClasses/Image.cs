@@ -17,7 +17,7 @@ namespace PyramidPanic
         private Texture2D texture;
         private Vector2 position;
         private PyramidPanic game;
-        private Rectangle rectangle;
+        protected Rectangle rectangle;
         private Color color = Color.White;
 
        

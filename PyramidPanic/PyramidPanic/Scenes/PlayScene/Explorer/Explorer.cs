@@ -50,6 +50,7 @@ namespace PyramidPanic
                     this.state = value;
                     this.state.Initialize();
                 }
+            get { return this.state; }
         }
         public ExplorerWalkLeft WalkLeft
         {

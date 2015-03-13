@@ -46,6 +46,10 @@ namespace PyramidPanic
         {
             get { return this.block;  }
         }
+        public Explorer Explorer
+        {
+            get { return this.explorer; }
+        }
 
 
         // Constructor
@@ -91,6 +95,8 @@ namespace PyramidPanic
                     this.block[columnNumber, rowNumber] = this.LoadBlock(blockElement, columnNumber, rowNumber);
                 }
             }
+
+            ExplorerManager.Level = this;
         }
 
 

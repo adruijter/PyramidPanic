@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExplorerManager.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerWalkUp.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerWalkDown.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerWalkLeft.cs" />

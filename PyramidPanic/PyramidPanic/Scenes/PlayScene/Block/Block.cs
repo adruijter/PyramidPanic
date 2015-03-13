@@ -21,6 +21,10 @@ namespace PyramidPanic
         {
             get { return this.passable; }
         }
+        public Rectangle CollisionRectangle
+        {
+            get { return this.Rectangle; }
+        }
 
 
         // Constructor
