@@ -25,18 +25,17 @@ namespace PyramidPanic
 
         public static bool CollisionDetectExplorerWallsRight()
         {
-            for (int i = 0; i < level.Block.GetLength(1); i++)
-            {
-                if (level.Block[i, (int)(level.Explorer.Position.Y/32)].Passable == false)
+                if (level.Block[(int)((level.Explorer.Position.X - 16) /32) + 1,
+                                (int)((level.Explorer.Position.Y - 16)/32)].Passable == false)
                 {
                     if (level.Explorer.State.DestinationRectangle.
-                            Intersects(level.Block[i, (int)(level.Explorer.Position.Y / 32)]
-                                    .CollisionRectangle))
+                            Intersects(level.Block[(int)((level.Explorer.Position.X - 16)/32),
+                                                   (int)((level.Explorer.Position.Y - 16)/ 32)]
+                                                            .CollisionRectangle))
                     {
                         return false;
                     }
-                }
-            }            
+                }            
             return true;
         }
     }

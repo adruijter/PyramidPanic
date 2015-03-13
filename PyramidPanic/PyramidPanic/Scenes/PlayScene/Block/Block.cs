@@ -32,6 +32,7 @@ namespace PyramidPanic
             : base(game, pictureName, position)
         {
             this.passable = passable;
+            this.Color = Color.White;
         }
 
 
