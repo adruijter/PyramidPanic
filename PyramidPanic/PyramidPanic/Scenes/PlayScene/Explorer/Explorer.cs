@@ -24,6 +24,7 @@ namespace PyramidPanic
         private ExplorerWalkDown walkDown;
         private ExplorerWalkUp walkUp;
         private float speed = 2f;
+        private Rectangle collisionRectangle;
 
         // Properties
         public PyramidPanic Game
@@ -38,6 +39,10 @@ namespace PyramidPanic
                                                                   (int)this.position.Y,
                                                                   this.texture.Width/4,
                                                                   this.texture.Height);
+                  this.collisionRectangle = new Rectangle((int)this.position.X - 16,
+                                                          (int)this.position.Y - 16,
+                                                          this.texture.Width / 4,
+                                                          this.texture.Height);
                 }
         }
         public Texture2D Texture
@@ -75,6 +80,11 @@ namespace PyramidPanic
         public float Speed
         {
             get { return this.speed; } 
+        }
+        public Rectangle CollisionRectangle
+        {
+            get { return this.collisionRectangle; }
+            set { this.collisionRectangle = value; }
         }
 
 

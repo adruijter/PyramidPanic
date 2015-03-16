@@ -45,6 +45,14 @@ namespace PyramidPanic
         // Update
         public override void Update(GameTime gameTime)
         {
+            this.explorer.Position += this.speed;
+            
+            if (ExplorerManager.CollisionDetectExplorerWallsRight())
+            {
+                this.explorer.Position -= this.speed;
+            }
+            
+            
             if (Input.LevelDetectKeyUp(Keys.Right))
             {
                 // Bereken de hoeveel pixels het middelpunt van de explorer verwijdert is van 16
@@ -62,13 +70,7 @@ namespace PyramidPanic
                     this.explorer.State = this.explorer.Idle;
                     this.explorer.Idle.Rotation = 0f;
                 }
-            }
-
-            if (ExplorerManager.CollisionDetectExplorerWallsRight())
-            {
-                this.explorer.Position += this.speed;
-            }
-        
+            }        
             base.Update(gameTime);
         }
 
