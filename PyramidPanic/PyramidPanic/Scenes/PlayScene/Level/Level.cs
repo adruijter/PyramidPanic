@@ -109,7 +109,7 @@ namespace PyramidPanic
                 case '2':
                     return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f), false);
                 case '3':
-                    return new Block(this.game, @"PlayScenePics\Blocks\Door", new Vector2(x * 32f, y * 32f), false);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Door", new Vector2(x * 32f, y * 32f), true);
                 case '4':
                     return new Block(this.game, @"PlayScenePics\Blocks\Wall1", new Vector2(x * 32f, y * 32f), false);
                 case '@':

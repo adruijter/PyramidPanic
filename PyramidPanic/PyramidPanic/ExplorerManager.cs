@@ -38,5 +38,54 @@ namespace PyramidPanic
                 }            
             return false;
         }
+
+        public static bool CollisionDetectExplorerWallsDown()
+        {
+            int stepX32 = (int)((level.Explorer.Position.X - 16) / 32);
+            int stepY32 = (int)((level.Explorer.Position.Y - 16) / 32);
+
+            if (level.Block[stepX32, stepY32 + 1].Passable == false)
+            {
+                if (level.Explorer.CollisionRectangle.
+                        Intersects(level.Block[stepX32, stepY32 + 1].CollisionRectangle))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool CollisionDetectExplorerWallsLeft()
+        {
+            int stepX32 = (int)((level.Explorer.Position.X - 16) / 32);
+            int stepY32 = (int)((level.Explorer.Position.Y - 16) / 32);
+
+            if (level.Block[stepX32, stepY32].Passable == false)
+            {
+                if (level.Explorer.CollisionRectangle.
+                        Intersects(level.Block[stepX32, stepY32].CollisionRectangle))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public static bool CollisionDetectExplorerWallsUp()
+        {
+            int stepX32 = (int)((level.Explorer.Position.X - 16) / 32);
+            int stepY32 = (int)((level.Explorer.Position.Y - 16) / 32);
+
+            if (level.Block[stepX32, stepY32].Passable == false)
+            {
+                if (level.Explorer.CollisionRectangle.
+                        Intersects(level.Block[stepX32, stepY32].CollisionRectangle))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

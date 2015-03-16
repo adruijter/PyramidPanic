@@ -46,12 +46,31 @@ namespace PyramidPanic
         // Update
         public override void Update(GameTime gameTime)
         {
-            if (Input.EdgeDetectKeyUp(Keys.Up))
-            {
-                this.explorer.State = this.explorer.Idle;
-                this.explorer.Idle.Rotation = -(float)Math.PI / 2;
-            }
             this.explorer.Position -= this.speed;
+
+            if (ExplorerManager.CollisionDetectExplorerWallsLeft())
+            {
+                this.explorer.Position += this.speed;
+            }
+
+            if (Input.LevelDetectKeyUp(Keys.Up))
+            {
+                // Bereken de hoeveel pixels het middelpunt van de explorer verwijdert is van 16
+                int modulo = (int)this.explorer.Position.Y % 32;
+
+                // Als module vlak voor de 16 staat dan wordt de laatste stap in het if-statement gezet.
+                if (modulo >= 16 && modulo <= (16 + this.explorer.Speed))
+                {
+                    // Bereken de positie in geheel aantal malen 32
+                    int geheelAantalMalen32 = (int)(this.explorer.Position.Y / 32);
+
+                    // Zet de explorer precies op het grid
+                    this.explorer.Position = new Vector2(this.explorer.Position.X,
+                                                         ((geheelAantalMalen32 + 1) * 32f) - 16f);
+                    this.explorer.State = this.explorer.Idle;
+                    this.explorer.Idle.Rotation = -(float)Math.PI/2;
+                }
+            }        
             base.Update(gameTime);
         }
 
