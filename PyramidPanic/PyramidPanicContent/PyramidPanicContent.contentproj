@@ -179,7 +179,13 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Assets\PlayScenePics\32x32-white.png">
+      <Name>32x32-white</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PlayScenePics\Explorer\Explorer.png">
       <Name>Explorer</Name>

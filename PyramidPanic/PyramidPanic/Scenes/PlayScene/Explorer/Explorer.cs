@@ -16,7 +16,7 @@ namespace PyramidPanic
         // Fields
         private PyramidPanic game;
         private Vector2 position;
-        private Texture2D texture;      
+        private Texture2D texture, collisionTexture;      
         private IAnimatedSprite state;
         private ExplorerWalkRight walkRight;
         private ExplorerIdle idle;
@@ -24,6 +24,7 @@ namespace PyramidPanic
         private ExplorerWalkDown walkDown;
         private ExplorerWalkUp walkUp;
         private float speed = 2f;
+
         private Rectangle collisionRectangle;
 
         // Properties
@@ -94,6 +95,11 @@ namespace PyramidPanic
             this.game = game;
             this.position = position;
             this.texture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\Explorer\Explorer");
+            this.collisionTexture = this.game.Content.Load<Texture2D>(@"Assets\PlayScenePics\32x32-white");
+            this.CollisionRectangle = new Rectangle((int)(this.position.X - 16),
+                                                    (int)(this.position.Y - 16),
+                                                    32,
+                                                    32);
             this.walkRight = new ExplorerWalkRight(this);
             this.idle = new ExplorerIdle(this);
             this.walkLeft = new ExplorerWalkLeft(this);
@@ -111,7 +117,10 @@ namespace PyramidPanic
         // Draw
         public void Draw(GameTime gameTime)
         {
-            this.state.Draw(gameTime);                       
+            this.state.Draw(gameTime);
+            //this.game.SpriteBatch.Draw(this.collisionTexture,
+            //                           this.collisionRectangle,
+            //                           Color.White);       
         }
     }
 }

@@ -28,7 +28,7 @@ namespace PyramidPanic
         private ScorpionManager scorpionManager;
         private Explorer explorer;
 
-        // Properties
+        // Propertiest
         public PyramidPanic Game
         {
             get { return this.game;  }
@@ -41,6 +41,10 @@ namespace PyramidPanic
         public List<Scorpion> Scorpions
         {
             get { return this.scorpions; }
+        }
+        public List<Image> Treasures
+        {
+            get { return this.treasures; }
         }
         public Block[,] Block
         {
@@ -170,6 +174,7 @@ namespace PyramidPanic
 
             foreach (Image treasure in this.treasures)
             {
+                //treasure.Color = Color.Violet;
                 treasure.Draw(gameTime);
             }
 

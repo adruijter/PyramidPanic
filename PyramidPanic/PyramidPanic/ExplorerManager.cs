@@ -87,5 +87,20 @@ namespace PyramidPanic
             }
             return false;
         }
+
+        public static void CollisionDetectTreasures()
+        {
+            foreach (Image image in level.Treasures)
+            {
+                if (level.Explorer.CollisionRectangle.Intersects(image.Rectangle))
+                {
+                    level.Treasures.Remove(image);
+                    break;
+                }
+                
+            }
+
+
+        }
     }
 }

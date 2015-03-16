@@ -70,7 +70,8 @@ namespace PyramidPanic
                     this.explorer.State = this.explorer.Idle;
                     this.explorer.Idle.Rotation = 0f;
                 }
-            }        
+            }
+            ExplorerManager.CollisionDetectTreasures();
             base.Update(gameTime);
         }
 
