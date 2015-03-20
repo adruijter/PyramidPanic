@@ -103,6 +103,7 @@ namespace PyramidPanic
                         case 'a':
                             break;
                         case 'p':
+                            Scores.Lives++;
                             break;
                         case 's':
                             break;

@@ -121,6 +121,7 @@
     <Compile Include="Scenes\PlayScene\AnimatedSprite\IAnimatedSprite.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\Explorer.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerWalkRight.cs" />
+    <Compile Include="Scenes\PlayScene\Scores\Scores.cs" />
     <Compile Include="Scenes\PlayScene\Scorpion\WalkLeft.cs" />
     <Compile Include="Scenes\PlayScene\Block\Block.cs" />
     <Compile Include="HelperClasses\Image.cs" />

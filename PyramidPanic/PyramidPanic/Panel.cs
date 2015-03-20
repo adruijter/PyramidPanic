@@ -18,7 +18,8 @@ namespace PyramidPanic
         private Vector2 position;
         private Char character;
         private List<Image> panelImages;
-        private Image panel;
+        private SpriteFont arial;
+        private Vector2 livesExplorerOffset = new Vector2(3.6f * 32f, 1f);
 
         // Properties
 
@@ -34,20 +35,30 @@ namespace PyramidPanic
 
         private void LoadContent()
         {
+            this.arial = this.game.Content.Load<SpriteFont>(@"Assets\PlayScenePics\Fonts\Arial");
             this.panelImages = new List<Image>();
-            this.panelImages.Add(new Image(this.game, @"PlayScenePics\Panel\Panel", this.position, this.character));
+            this.panelImages.Add(new Image(this.game, 
+                                           @"PlayScenePics\Panel\Panel",
+                                           this.position, 
+                                           this.character));
+            this.panelImages.Add(new Image(this.game, 
+                                           @"PlayScenePics\Panel\Lives",
+                                           this.position + new Vector2(2.5f * 32f, 0f), 
+                                           this.character));
 
         }
 
         // Methods
         public void Draw(GameTime gameTime)
         {
-            foreach()
+            foreach(Image jan in this.panelImages )
             {
-
+                jan.Draw(gameTime);
             }
-            
-            this.panel.Draw(gameTime);
+            this.game.SpriteBatch.DrawString(this.arial,
+                                             Scores.Lives.ToString(),
+                                             this.position + this.livesExplorerOffset,
+                                             Color.Gold);
         }
     }
 }
