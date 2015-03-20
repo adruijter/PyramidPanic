@@ -95,6 +95,17 @@ namespace PyramidPanic
                 if (level.Explorer.CollisionRectangle.Intersects(image.Rectangle))
                 {
                     level.Treasures.Remove(image);
+                    switch (image.Character)
+                    {
+                        case 'c':
+                            break;
+                        case 'a':
+                            break;
+                        case 'p':
+                            break;
+                        case 's':
+                            break;
+                    }
                     break;
                 }
                 

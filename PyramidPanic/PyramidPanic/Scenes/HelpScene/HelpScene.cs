@@ -26,7 +26,7 @@ namespace PyramidPanic
         public HelpScene(PyramidPanic game)
         {
             this.game = game;
-            this.helpText = new Image(this.game, @"HelpScenePics\HelpText", new Vector2(0f, 0f));
+            this.helpText = new Image(this.game, @"HelpScenePics\HelpText", new Vector2(0f, 0f), '?');
             this.scrollSpeed = new Vector2(0f, 20f);
         }
 

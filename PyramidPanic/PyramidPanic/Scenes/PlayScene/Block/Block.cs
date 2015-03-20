@@ -28,8 +28,8 @@ namespace PyramidPanic
 
 
         // Constructor
-        public Block(PyramidPanic game, string pictureName, Vector2 position, bool passable)
-            : base(game, pictureName, position)
+        public Block(PyramidPanic game, string pictureName, Vector2 position, bool passable, char character)
+            : base(game, pictureName, position, character)
         {
             this.passable = passable;
             this.Color = Color.White;

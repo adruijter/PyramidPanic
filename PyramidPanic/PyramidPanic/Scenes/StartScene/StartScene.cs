@@ -28,8 +28,8 @@ namespace PyramidPanic
         public StartScene(PyramidPanic game)
         {
             this.game = game;
-            this.background = new Image(this.game, @"StartScenePics\Background", Vector2.Zero);
-            this.title = new Image(this.game, @"StartScenePics\Title", new Vector2(100f, 20f));
+            this.background = new Image(this.game, @"StartScenePics\Background", Vector2.Zero, 'b');
+            this.title = new Image(this.game, @"StartScenePics\Title", new Vector2(100f, 20f), 't');
             this.menu = new Menu(this.game);
 
         }

@@ -52,31 +52,31 @@ namespace PyramidPanic
 
             this.buttonList.Add(this.start = new Image(this.game,
                                                        @"StartScenePics\Button_start",
-                                                       new Vector2(this.offsetLeft, this.offsetDown)));
+                                                       new Vector2(this.offsetLeft, this.offsetDown), 'i'));
             
             this.buttonList.Add(this.help = new Image(this.game, 
                                                       @"StartScenePics\Button_help",
                                                       new Vector2(this.offsetLeft + 
-                                                      1 * (this.buttonWidth + this.spacing), this.offsetDown)));
+                                                      1 * (this.buttonWidth + this.spacing), this.offsetDown), 'i'));
 
 
             this.buttonList.Add(this.scores = new Image(this.game,
                                                         @"StartScenePics\Button_scores",
                                                         new Vector2(this.offsetLeft +
                                                         2 * (this.buttonWidth + this.spacing),
-                                                        this.offsetDown)));
+                                                        this.offsetDown), 'i'));
 
             this.buttonList.Add(this.quit = new Image(this.game, 
                                                       @"StartScenePics\Button_quit",
                                                       new Vector2(this.offsetLeft +
                                                       3 * (this.buttonWidth + this.spacing),
-                                                      this.offsetDown)));
+                                                      this.offsetDown), 'i'));
 
             this.buttonList.Add(this.editor = new Image(this.game, 
                                                         @"StartScenePics\Button_leveleditor",
                                                         new Vector2(this.offsetLeft +
                                                         4 * (this.buttonWidth + this.spacing),
-                                                        this.offsetDown)));
+                                                        this.offsetDown), 'i'));
             this.start.Color = Color.Gold;
         }
 

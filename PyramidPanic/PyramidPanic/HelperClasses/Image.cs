@@ -19,6 +19,7 @@ namespace PyramidPanic
         private PyramidPanic game;
         protected Rectangle rectangle;
         private Color color = Color.White;
+        private Char character;
 
        
         //Properties
@@ -26,13 +27,11 @@ namespace PyramidPanic
         {
             get { return this.rectangle; }
         }
-
         public Color Color
         {
             get { return this.color; }
             set { this.color = value; }
         }
-
         public Vector2 Position
         {
             get { return this.position; }
@@ -42,13 +41,17 @@ namespace PyramidPanic
                     this.rectangle.Y = (int)this.position.Y;
                 }
         }
+        public Char Character
+        {
+            get { return this.character; }
+        }
 
 
 
 
 
         //Constructor
-        public Image(PyramidPanic game, string pictureName, Vector2 position)
+        public Image(PyramidPanic game, string pictureName, Vector2 position, Char character)
         {
             this.game = game;
             this.position = position;
@@ -57,6 +60,7 @@ namespace PyramidPanic
                                            (int)this.position.Y,
                                            this.texture.Width,
                                            this.texture.Height);
+            this.character = character;
         }
 
         //Update method

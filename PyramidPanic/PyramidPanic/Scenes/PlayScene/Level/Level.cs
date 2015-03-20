@@ -109,40 +109,40 @@ namespace PyramidPanic
             switch (blockElement)
             {
                 case '1':
-                    return new Block(this.game, @"PlayScenePics\Blocks\Wall2", new Vector2(x * 32f, y * 32f), false);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Wall2", new Vector2(x * 32f, y * 32f), false, '1');
                 case '2':
-                    return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f), false);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f), false, '2');
                 case '3':
-                    return new Block(this.game, @"PlayScenePics\Blocks\Door", new Vector2(x * 32f, y * 32f), true);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Door", new Vector2(x * 32f, y * 32f), true, '3');
                 case '4':
-                    return new Block(this.game, @"PlayScenePics\Blocks\Wall1", new Vector2(x * 32f, y * 32f), false);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Wall1", new Vector2(x * 32f, y * 32f), false, '4');
                 case '@':
-                    this.background = new Image(this.game, @"PlayScenePics\Background", new Vector2(0f, 0f));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f), false);
+                    this.background = new Image(this.game, @"PlayScenePics\Background", new Vector2(0f, 0f), '@');
+                    return new Block(this.game, @"PlayScenePics\Blocks\Block", new Vector2(x * 32f, y * 32f), false, '2');
                 case 'a':
                     this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Ankh", 
-                                                    new Vector2(x * 32f, y * 32f)));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                                                    new Vector2(x * 32f, y * 32f), 'a'));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 case 'p':
                     this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Potion",
-                                                    new Vector2(x * 32f, y * 32f)));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                                                    new Vector2(x * 32f, y * 32f), 'p'));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 case 'c':
                     this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Cat",
-                                                    new Vector2(x * 32f, y * 32f)));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                                                    new Vector2(x * 32f, y * 32f), 'c'));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 case 's':
                     this.treasures.Add(new Image(this.game, @"PlayScenePics\Treasures\Scarab",
-                                                    new Vector2(x * 32f, y * 32f)));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                                                    new Vector2(x * 32f, y * 32f), 's'));
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 case 'S':
                     this.scorpions.Add(new Scorpion(this.game, new Vector2(x * 32f + 16f, y * 32f + 16f)));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 case 'E':
                     this.explorer = new Explorer(this.game, new Vector2(x * 32f + 16f , y * 32f + 16f));
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 default:
-                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true);
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
             }
 
         }
