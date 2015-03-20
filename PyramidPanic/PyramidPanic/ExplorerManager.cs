@@ -98,6 +98,7 @@ namespace PyramidPanic
                     switch (image.Character)
                     {
                         case 'c':
+
                             break;
                         case 'a':
                             break;

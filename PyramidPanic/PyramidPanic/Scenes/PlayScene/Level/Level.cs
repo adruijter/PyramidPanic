@@ -27,6 +27,7 @@ namespace PyramidPanic
         private List<Scorpion> scorpions;
         private ScorpionManager scorpionManager;
         private Explorer explorer;
+        private Panel panel;
 
         // Propertiest
         public PyramidPanic Game
@@ -141,6 +142,9 @@ namespace PyramidPanic
                 case 'E':
                     this.explorer = new Explorer(this.game, new Vector2(x * 32f + 16f , y * 32f + 16f));
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
+                case 'P':
+                    this.panel = new Panel(this.game, new Vector2(x * 32f, y * 32f), 'P');
+                    return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
                 default:
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
             }
@@ -183,6 +187,7 @@ namespace PyramidPanic
                 scorpion.Draw(gameTime);
             }
             this.explorer.Draw(gameTime);
+            this.panel.Draw(gameTime);
         }
 
 
