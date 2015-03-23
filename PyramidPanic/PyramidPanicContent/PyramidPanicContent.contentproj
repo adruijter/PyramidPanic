@@ -102,7 +102,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Level\0.txt">
+    <None Include="Assets\LevelMapDesign\0.txt">
       <Name>0</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -198,7 +198,18 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Assets\PlayScenePics\Level\Overlay640x448transparant.png">
+      <Name>Overlay640x448transparant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Assets\PlayScenePics\Level\Overlay640x480transparant.png">
+      <Name>Overlay640x480transparant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PlayScenePics\Panel\Lives.png">
       <Name>Lives</Name>

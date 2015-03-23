@@ -28,6 +28,8 @@ namespace PyramidPanic
         private ScorpionManager scorpionManager;
         private Explorer explorer;
         private Panel panel;
+        private ILevel levelState;
+        private LevelPlay levelPlay;
 
         // Propertiest
         public PyramidPanic Game
@@ -67,12 +69,14 @@ namespace PyramidPanic
             this.scorpions = new List<Scorpion>();
             this.Initialize(levelIndex);
             this.scorpionManager = new ScorpionManager(this);
+            this.levelPlay = new LevelPlay(this);
+            this.levelState = this.levelPlay;
         }
 
         // Initialize
         public void Initialize(int levelIndex)
         {
-            this.fileStream = File.OpenRead(@"C:\Users\Arjan de Ruijter\Documents\Visual Studio 2010\Projects\2014-2015\PyramidPanic\PyramidPanic\PyramidPanicContent\Assets\Level\" + levelIndex + ".txt");
+            this.fileStream = File.OpenRead(@"C:\Users\Arjan de Ruijter\Documents\Visual Studio 2010\Projects\2014-2015\PyramidPanic\PyramidPanic\PyramidPanicContent\Assets\LevelMapDesign\" + levelIndex + ".txt");
             this.textReader = new StreamReader(this.fileStream);
             
             string line = this.textReader.ReadLine();
@@ -154,11 +158,7 @@ namespace PyramidPanic
         // Update
         public void Update(GameTime gameTime)
         {
-            foreach (Scorpion scorpion in this.scorpions)
-            {
-                scorpion.Update(gameTime);
-            }
-            this.explorer.Update(gameTime);
+            this.levelState.Update(gameTime);
         }
 
         // Draw
@@ -188,10 +188,7 @@ namespace PyramidPanic
             }
             this.explorer.Draw(gameTime);
             this.panel.Draw(gameTime);
+            this.levelState.Draw(gameTime);
         }
-
-
-
-        // Helper methods
     }
 }
