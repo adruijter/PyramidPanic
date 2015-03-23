@@ -30,8 +30,9 @@ namespace PyramidPanic
         private Panel panel;
         private ILevel levelState;
         private LevelPlay levelPlay;
+        private LevelPause levelPause;
 
-        // Propertiest
+        // Properties
         public PyramidPanic Game
         {
             get { return this.game;  }
@@ -57,6 +58,19 @@ namespace PyramidPanic
         {
             get { return this.explorer; }
         }
+        public ILevel LevelState
+        {
+            get { return this.levelState; }
+            set { this.levelState = value; }
+        }
+        public LevelPlay LevelPlay
+        {
+            get { return this.levelPlay; }
+        }
+        public LevelPause LevelPause
+        {
+            get { return this.levelPause; }
+        }
 
 
         // Constructor
@@ -70,6 +84,7 @@ namespace PyramidPanic
             this.Initialize(levelIndex);
             this.scorpionManager = new ScorpionManager(this);
             this.levelPlay = new LevelPlay(this);
+            this.levelPause = new LevelPause(this);
             this.levelState = this.levelPlay;
         }
 
@@ -157,10 +172,10 @@ namespace PyramidPanic
 
         // Update
         public void Update(GameTime gameTime)
-        {
+        {           
             this.levelState.Update(gameTime);
         }
-
+        
         // Draw
         public void Draw(GameTime gameTime)
         {

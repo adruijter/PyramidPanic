@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="ExplorerManager.cs" />
     <Compile Include="ILevel.cs" />
+    <Compile Include="LevelPause.cs" />
     <Compile Include="Panel.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerWalkUp.cs" />
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerWalkDown.cs" />

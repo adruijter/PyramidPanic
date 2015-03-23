@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,17 +10,16 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
-{ 
-    public class LevelPlay : ILevel
+{
+    public class LevelPause : ILevel
     {
         // Fields
         private Level level;
 
         // Properties
 
-
         // Constructor
-        public LevelPlay(Level level)
+        public LevelPause(Level level)
         {
             this.level = level;
         }
@@ -30,14 +28,8 @@ namespace PyramidPanic
         {
             if (Input.EdgeDetectKeyDown(Keys.P))
             {
-                this.level.LevelState = this.level.LevelPause;
+                this.level.LevelState = this.level.LevelPlay;
             }
-
-            foreach (Scorpion scorpion in this.level.Scorpions)
-            {
-                scorpion.Update(gameTime);
-            }
-            this.level.Explorer.Update(gameTime);
         }
 
         public void Draw(GameTime gameTime)
