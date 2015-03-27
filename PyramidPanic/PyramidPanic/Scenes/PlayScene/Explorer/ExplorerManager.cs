@@ -119,7 +119,20 @@ namespace PyramidPanic
             {
                 if (level.Explorer.CollisionRectangle.Intersects(scorpion.CollisionRectangle))
                 {
-                    level.LevelState = level.LevelPause;
+                    if (level.LevelState.Equals(level.LevelPlay))
+                    {
+                        level.LevelState = level.LevelCollisionPause;
+                        Scores.Lives--;
+                    }
+                    else
+                    {
+                        level.Scorpions.Remove(scorpion);
+                        level.Explorer.State = level.Explorer.Idle;
+                        level.Explorer.Idle.Rotation = 0f;
+                        level.Explorer.Idle.Effect = SpriteEffects.None;
+                        level.Explorer.Position = new Vector2(8 * 32f - 16f, 8 * 32f - 16f);
+                    }
+                    break;
                 }
             }
         }

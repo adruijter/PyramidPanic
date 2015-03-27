@@ -31,6 +31,7 @@ namespace PyramidPanic
         private ILevel levelState;
         private LevelPlay levelPlay;
         private LevelPause levelPause;
+        private LevelCollisionPause levelCollisionPause;
 
         // Properties
         public PyramidPanic Game
@@ -71,6 +72,10 @@ namespace PyramidPanic
         {
             get { return this.levelPause; }
         }
+        public LevelCollisionPause LevelCollisionPause
+        {
+            get { return this.levelCollisionPause; }
+        }
 
 
         // Constructor
@@ -85,6 +90,7 @@ namespace PyramidPanic
             this.scorpionManager = new ScorpionManager(this);
             this.levelPlay = new LevelPlay(this);
             this.levelPause = new LevelPause(this);
+            this.levelCollisionPause = new LevelCollisionPause(this);
             this.levelState = this.levelPlay;
         }
 
