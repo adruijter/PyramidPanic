@@ -109,11 +109,19 @@ namespace PyramidPanic
                             break;
                     }
                     break;
-                }
-                
+                }                
             }
+        }
 
-
+        public static void CollisionDetectScorpions()
+        {
+            foreach (Scorpion scorpion in level.Scorpions)
+            {
+                if (level.Explorer.CollisionRectangle.Intersects(scorpion.CollisionRectangle))
+                {
+                    level.LevelState = level.LevelPause;
+                }
+            }
         }
     }
 }

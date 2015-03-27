@@ -77,6 +77,10 @@ namespace PyramidPanic
         {
             get { return this.speed; } 
         }
+        public Rectangle CollisionRectangle
+        {
+            get { return this.collisionRectangle; }
+        }
 
 
         // Constructor

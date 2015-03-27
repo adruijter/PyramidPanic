@@ -38,6 +38,7 @@ namespace PyramidPanic
                 scorpion.Update(gameTime);
             }
             this.level.Explorer.Update(gameTime);
+            ExplorerManager.CollisionDetectScorpions();
         }
 
         public void Draw(GameTime gameTime)
