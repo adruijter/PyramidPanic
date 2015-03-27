@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerManager.cs" />
+    <Compile Include="Scenes\PlayScene\Level\LevelGameOver.cs" />
     <Compile Include="Scenes\PlayScene\Level\LevelCollisionPause.cs" />
     <Compile Include="Scenes\PlayScene\Level\ILevel.cs" />
     <Compile Include="Scenes\PlayScene\Level\LevelPause.cs" />

@@ -28,6 +28,11 @@ namespace PyramidPanic
 
         public void Update(GameTime gameTime)
         {
+            if (Scores.GameOver)
+            {
+                this.level.LevelState = level.LevelGameOver;
+            }
+            
             if (Input.EdgeDetectKeyDown(Keys.P))
             {
                 this.level.LevelState = this.level.LevelPause;

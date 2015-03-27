@@ -16,12 +16,25 @@ namespace PyramidPanic
     {
         // Fields
         private static int lives = 3;
+        private static bool gameOver = false;
 
         // Properties
         public static int Lives
         {
             get { return lives; }
-            set { lives = value; }
+            set 
+            { 
+                  lives = value;
+                  if (lives == 0)
+                  {
+                      gameOver = true;
+                  }
+            }
+        }
+
+        public static bool GameOver
+        {
+            get { return gameOver; }
         }
     }
 }
