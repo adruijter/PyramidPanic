@@ -24,7 +24,6 @@ namespace PyramidPanic
         private ExplorerWalkDown walkDown;
         private ExplorerWalkUp walkUp;
         private float speed = 2f;
-
         private Rectangle collisionRectangle;
 
         // Properties
@@ -118,9 +117,9 @@ namespace PyramidPanic
         public void Draw(GameTime gameTime)
         {
             this.state.Draw(gameTime);
-            //this.game.SpriteBatch.Draw(this.collisionTexture,
-            //                           this.collisionRectangle,
-            //                           Color.White);       
+            this.game.SpriteBatch.Draw(this.collisionTexture,
+                                       this.collisionRectangle,
+                                       Color.White);       
         }
     }
 }
