@@ -15,6 +15,8 @@ namespace PyramidPanic
     {
         // Fields
         private Level level;
+        private Image overlay, pauze;
+        private float timer;
 
         // Properties
 
@@ -22,10 +24,29 @@ namespace PyramidPanic
         public LevelPause(Level level)
         {
             this.level = level;
+            this.overlay = new Image(this.level.Game,
+                                     @"PlayScenePics\Level\Overlay640x480White",
+                                     Vector2.Zero,
+                                     'q');
+            this.pauze = new Image(this.level.Game,
+                                     @"PlayScenePics\Level\pauze",
+                                     Vector2.Zero,
+                                     'q');
+            this.overlay.Color = new Color(0, 0, 0, 80);
         }
 
         public void Update(GameTime gameTime)
         {
+            /*
+            this.timer += 1f / 60f;
+
+            if (this.timer > 3)
+            {
+                this.level.LevelState = this.level.LevelPlay;
+                this.timer = 0f;
+            }
+            */
+
             if (Input.EdgeDetectKeyDown(Keys.P))
             {
                 this.level.LevelState = this.level.LevelPlay;
@@ -34,7 +55,8 @@ namespace PyramidPanic
 
         public void Draw(GameTime gameTime)
         {
-
+            this.overlay.Draw(gameTime);
+            this.pauze.Draw(gameTime);
         }
     }
 }
