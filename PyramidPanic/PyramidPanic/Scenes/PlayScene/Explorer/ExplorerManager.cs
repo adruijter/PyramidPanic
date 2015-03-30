@@ -26,6 +26,12 @@ namespace PyramidPanic
         public static bool CollisionDetectExplorerWallsRight()
         {
             int stepX32 = (int)((level.Explorer.Position.X - 16) / 32);
+
+            if (stepX32 > 18)
+            {
+                stepX32 = 18;
+            }
+
             int stepY32 = (int)((level.Explorer.Position.Y - 16) / 32);
             
             if (level.Block[stepX32 + 1, stepY32].Passable == false)
@@ -60,6 +66,11 @@ namespace PyramidPanic
             int stepX32 = (int)((level.Explorer.Position.X - 16) / 32);
             int stepY32 = (int)((level.Explorer.Position.Y - 16) / 32);
 
+            if (stepX32 < 0)
+            {
+                stepX32 = 0;
+            }
+
             if (level.Block[stepX32, stepY32].Passable == false)
             {
                 if (level.Explorer.CollisionRectangle.
@@ -76,6 +87,11 @@ namespace PyramidPanic
         {
             int stepX32 = (int)((level.Explorer.Position.X - 16) / 32);
             int stepY32 = (int)((level.Explorer.Position.Y - 16) / 32);
+
+            if (stepY32 < 0)
+            {
+                stepY32 = 0;
+            }
 
             if (level.Block[stepX32, stepY32].Passable == false)
             {
@@ -135,6 +151,11 @@ namespace PyramidPanic
                     break;
                 }
             }
+        }
+
+        public static bool WalkOutOfLevel()
+        {
+
         }
     }
 }

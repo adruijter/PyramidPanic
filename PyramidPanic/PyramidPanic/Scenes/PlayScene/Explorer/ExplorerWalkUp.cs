@@ -48,7 +48,7 @@ namespace PyramidPanic
         {
             this.explorer.Position -= this.speed;
 
-            if (ExplorerManager.CollisionDetectExplorerWallsLeft())
+            if (ExplorerManager.CollisionDetectExplorerWallsUp())
             {
                 this.explorer.Position += this.speed;
             }
