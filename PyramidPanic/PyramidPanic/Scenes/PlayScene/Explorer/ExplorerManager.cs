@@ -153,8 +153,12 @@ namespace PyramidPanic
             }
         }
 
-        public static bool WalkOutOfLevel()
+        public static void WalkOutOfLevel()
         {
+            if (level.Explorer.Position.Y >= 448)
+            {
+                level.LevelState = level.LevelPause;
+            }
 
         }
     }
