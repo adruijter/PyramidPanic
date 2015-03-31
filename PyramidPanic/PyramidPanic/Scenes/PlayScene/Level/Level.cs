@@ -33,6 +33,7 @@ namespace PyramidPanic
         private LevelPause levelPause;
         private LevelCollisionPause levelCollisionPause;
         private LevelGameOver levelGameOver;
+        private LevelNextLevel levelNextLevel;
 
 
         // Properties
@@ -82,28 +83,37 @@ namespace PyramidPanic
         {
             get { return this.levelGameOver; }
         }
+        public LevelNextLevel LevelNextLevel
+        {
+            get { return this.levelNextLevel; }
+        }
 
 
         // Constructor
         public Level(PyramidPanic game, int levelIndex)
         {
             this.game = game;
-            this.levelIndex = levelIndex;
-            this.lines = new List<string>();
-            this.treasures = new List<Image>();
-            this.scorpions = new List<Scorpion>();
+
             this.Initialize(levelIndex);
-            this.scorpionManager = new ScorpionManager(this);
+            
             this.levelPlay = new LevelPlay(this);
             this.levelPause = new LevelPause(this);
             this.levelCollisionPause = new LevelCollisionPause(this);
             this.levelGameOver = new LevelGameOver(this);
+            this.levelNextLevel = new LevelNextLevel(this);
             this.levelState = this.levelPlay;
         }
 
         // Initialize
         public void Initialize(int levelIndex)
         {
+            this.levelIndex = levelIndex;
+            this.lines = new List<string>();
+            this.treasures = new List<Image>();
+            this.scorpions = new List<Scorpion>();
+            
+            
+            
             this.fileStream = File.OpenRead(@"C:\Users\Arjan de Ruijter\Documents\Visual Studio 2010\Projects\2014-2015\PyramidPanic\PyramidPanic\PyramidPanicContent\Assets\LevelMapDesign\" + levelIndex + ".txt");
             this.textReader = new StreamReader(this.fileStream);
             
@@ -122,6 +132,7 @@ namespace PyramidPanic
             this.fileStream.Close();
             this.textReader.Close();
 
+           
             this.block = new Block[blockWidth, blockHeight];
 
             for (int rowNumber = 0; rowNumber < blockHeight; rowNumber++)
@@ -132,7 +143,7 @@ namespace PyramidPanic
                     this.block[columnNumber, rowNumber] = this.LoadBlock(blockElement, columnNumber, rowNumber);
                 }
             }
-
+            this.scorpionManager = new ScorpionManager(this);
             ExplorerManager.Level = this;
         }
 
@@ -185,7 +196,7 @@ namespace PyramidPanic
 
         // Update
         public void Update(GameTime gameTime)
-        {           
+        {            
             this.levelState.Update(gameTime);
         }
         

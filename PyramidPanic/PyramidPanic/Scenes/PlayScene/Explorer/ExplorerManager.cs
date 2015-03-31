@@ -155,11 +155,13 @@ namespace PyramidPanic
 
         public static void WalkOutOfLevel()
         {
-            if (level.Explorer.Position.Y >= 448)
+            if (level.Explorer.Position.Y >= 448 ||
+                level.Explorer.Position.X >= 640 ||
+                level.Explorer.Position.Y <= 0   ||
+                level.Explorer.Position.X <= 0)
             {
-                level.LevelState = level.LevelPause;
+                level.LevelState = level.LevelNextLevel;
             }
-
         }
     }
 }

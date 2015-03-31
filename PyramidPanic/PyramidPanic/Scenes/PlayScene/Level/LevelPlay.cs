@@ -28,6 +28,7 @@ namespace PyramidPanic
 
         public void Update(GameTime gameTime)
         {
+            ExplorerManager.WalkOutOfLevel();            
             if (Scores.GameOver)
             {
                 this.level.LevelState = level.LevelGameOver;
