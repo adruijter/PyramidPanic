@@ -121,7 +121,6 @@ namespace PyramidPanic
                             break;
                         case 'p':
                             Scores.Lives++;
-                            Scores.Points += 0;
                             break;
                         case 's':
                             Scores.Points += 50;
@@ -164,6 +163,23 @@ namespace PyramidPanic
                 level.Explorer.Position.X <= 0)
             {
                 level.LevelState = level.LevelNextLevel;
+            }
+        }
+
+        public static void OpenDoors()
+        {
+            if (Scores.OpenDoors)
+            {
+                for (int i=0; i < level.Block.GetLength(0); i++)
+                {
+                    for (int j=0; j < level.Block.GetLength(1) ; j++)
+                    {
+                        if (level.Block[i, j].Character == '3')
+                        {
+                            level.Block[i, j].Passable = true;
+                        }
+                    }
+                }
             }
         }
     }

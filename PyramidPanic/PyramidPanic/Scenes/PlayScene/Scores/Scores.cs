@@ -19,6 +19,7 @@ namespace PyramidPanic
         private static bool gameOver = false;
         private static int minimalPointsForNextLevel = 300;
         private static int points = 0;
+        private static bool openDoors = false;
 
         // Properties
         public static int Lives
@@ -43,7 +44,11 @@ namespace PyramidPanic
                   if (points == 0)
                   {
                       gameOver = true;
-                  }                
+                  }
+                  if (points > minimalPointsForNextLevel)
+                  {
+                      openDoors = true;
+                  }
             }
         }
 
@@ -56,6 +61,11 @@ namespace PyramidPanic
         {
             set { minimalPointsForNextLevel = value; }
             get { return minimalPointsForNextLevel; }
+        }
+
+        public static bool OpenDoors
+        {
+            get { return openDoors; }
         }
     }
 }

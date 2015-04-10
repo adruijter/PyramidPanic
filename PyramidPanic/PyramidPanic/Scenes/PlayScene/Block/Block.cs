@@ -20,6 +20,7 @@ namespace PyramidPanic
         public bool Passable
         {
             get { return this.passable; }
+            set { this.passable = value; }
         }
         public Rectangle CollisionRectangle
         {
