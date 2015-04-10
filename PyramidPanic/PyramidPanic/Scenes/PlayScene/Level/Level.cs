@@ -108,6 +108,7 @@ namespace PyramidPanic
         public void Initialize(int levelIndex)
         {
             this.levelIndex = levelIndex;
+            Scores.OpenDoors = false;
             this.lines = new List<string>();
             this.treasures = new List<Image>();
             this.scorpions = new List<Scorpion>();
@@ -143,6 +144,7 @@ namespace PyramidPanic
                     this.block[columnNumber, rowNumber] = this.LoadBlock(blockElement, columnNumber, rowNumber);
                 }
             }
+            this.CountTotalPointsLevel();
             this.scorpionManager = new ScorpionManager(this);
             ExplorerManager.Level = this;
         }
@@ -192,6 +194,30 @@ namespace PyramidPanic
                     return new Block(this.game, @"PlayScenePics\Blocks\Transparant", new Vector2(x * 32f, y * 32f), true, 't');
             }
 
+        }
+
+        private void CountTotalPointsLevel()
+        {
+            int totalPointsLevel = 0;
+            foreach (Image image in treasures)
+            {
+                switch (image.Character)
+                {
+                    case 'a':
+                        totalPointsLevel += 10;
+                        break;
+                    case 'c':
+                        totalPointsLevel += 100;
+                        break;
+                    case 's':
+                        totalPointsLevel += 50;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            Scores.MinimalPointsForNextLevel = Scores.Points + (int)(totalPointsLevel * 0.5f);
+            Console.WriteLine("MinimalPointsForNextLevel: {0}", Scores.MinimalPointsForNextLevel);
         }
 
         // Update

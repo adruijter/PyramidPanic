@@ -57,7 +57,7 @@ namespace PyramidPanic
             get { return gameOver; }
         }
 
-        public int MinimalPointsForNextLevel
+        public static int MinimalPointsForNextLevel
         {
             set { minimalPointsForNextLevel = value; }
             get { return minimalPointsForNextLevel; }
@@ -66,6 +66,7 @@ namespace PyramidPanic
         public static bool OpenDoors
         {
             get { return openDoors; }
+            set { openDoors = value; }
         }
     }
 }
