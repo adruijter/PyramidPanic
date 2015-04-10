@@ -17,6 +17,8 @@ namespace PyramidPanic
         // Fields
         private static int lives = 3;
         private static bool gameOver = false;
+        private static int minimalPointsForNextLevel = 300;
+        private static int points = 0;
 
         // Properties
         public static int Lives
@@ -32,9 +34,28 @@ namespace PyramidPanic
             }
         }
 
+        public static int Points
+        {
+            get { return points; }
+            set 
+            { 
+                  points = value;
+                  if (points == 0)
+                  {
+                      gameOver = true;
+                  }                
+            }
+        }
+
         public static bool GameOver
         {
             get { return gameOver; }
+        }
+
+        public int MinimalPointsForNextLevel
+        {
+            set { minimalPointsForNextLevel = value; }
+            get { return minimalPointsForNextLevel; }
         }
     }
 }

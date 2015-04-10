@@ -114,14 +114,17 @@ namespace PyramidPanic
                     switch (image.Character)
                     {
                         case 'c':
-
+                            Scores.Points += 100;
                             break;
                         case 'a':
+                            Scores.Points += 10;
                             break;
                         case 'p':
                             Scores.Lives++;
+                            Scores.Points += 0;
                             break;
                         case 's':
+                            Scores.Points += 50;
                             break;
                     }
                     break;

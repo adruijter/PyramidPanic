@@ -20,6 +20,7 @@ namespace PyramidPanic
         private List<Image> panelImages;
         private SpriteFont arial;
         private Vector2 livesExplorerOffset = new Vector2(3.6f * 32f, 1f);
+        private Vector2 pointsOffset = new Vector2(16.5f * 32f, 1f);
 
         // Properties
 
@@ -58,6 +59,10 @@ namespace PyramidPanic
             this.game.SpriteBatch.DrawString(this.arial,
                                              Scores.Lives.ToString(),
                                              this.position + this.livesExplorerOffset,
+                                             Color.Gold);
+            this.game.SpriteBatch.DrawString(this.arial,
+                                             Scores.Points.ToString(),
+                                             this.position + this.pointsOffset,
                                              Color.Gold);
         }
     }
