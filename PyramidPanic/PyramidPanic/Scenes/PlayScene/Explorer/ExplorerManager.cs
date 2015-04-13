@@ -163,7 +163,14 @@ namespace PyramidPanic
                 level.Explorer.Position.Y <= 0   ||
                 level.Explorer.Position.X <= 0)
             {
-                level.LevelState = level.LevelNextLevel;
+                if (level.LevelIndex == 1)
+                {
+                    level.LevelState = level.LevelYouWon;
+                }
+                else
+                {
+                    level.LevelState = level.LevelNextLevel;
+                }
             }
         }
 

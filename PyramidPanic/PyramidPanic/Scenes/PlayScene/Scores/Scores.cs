@@ -41,7 +41,7 @@ namespace PyramidPanic
             set 
             { 
                   points = value;
-                  if (points == 0)
+                  if (points < 0)
                   {
                       gameOver = true;
                   }

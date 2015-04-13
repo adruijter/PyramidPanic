@@ -35,6 +35,7 @@ namespace PyramidPanic
         private LevelGameOver levelGameOver;
         private LevelNextLevel levelNextLevel;
         private LevelDoorsOpen levelDoorsOpen;
+        private LevelYouWon levelYouWon;
 
 
         // Properties
@@ -92,6 +93,10 @@ namespace PyramidPanic
         {
             get { return this.levelDoorsOpen; }
         }
+        public LevelYouWon LevelYouWon
+        {
+            get { return this.levelYouWon; }
+        }
 
 
         // Constructor
@@ -107,12 +112,20 @@ namespace PyramidPanic
             this.levelGameOver = new LevelGameOver(this);
             this.levelNextLevel = new LevelNextLevel(this);
             this.levelDoorsOpen = new LevelDoorsOpen(this);
+            this.levelYouWon = new LevelYouWon(this);
             this.levelState = this.levelPlay;
         }
 
         // Initialize
         public void Initialize(int levelIndex)
         {
+            if (levelIndex == 0)
+            {
+                Scores.Points = 0;
+                Scores.Lives = 3;
+                Scores.MinimalPointsForNextLevel = 0;
+            }
+            
             this.levelIndex = levelIndex;
             Scores.OpenDoors = false;
             this.lines = new List<string>();

@@ -25,7 +25,7 @@ namespace PyramidPanic
         public PlayScene(PyramidPanic game)
         {
             this.game = game;
-            this.level = new Level(this.game, 0);
+            this.level = new Level(this.game, 1);
         }
 
         // Update

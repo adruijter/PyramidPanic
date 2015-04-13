@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Scenes\PlayScene\Explorer\ExplorerManager.cs" />
+    <Compile Include="Scenes\PlayScene\Level\LevelYouWon.cs" />
     <Compile Include="Scenes\PlayScene\Level\LevelDoorsOpen.cs" />
     <Compile Include="Scenes\PlayScene\Level\LevelNextLevel.cs" />
     <Compile Include="Scenes\PlayScene\Level\LevelGameOver.cs" />
