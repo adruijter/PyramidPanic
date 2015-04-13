@@ -76,7 +76,7 @@ namespace PyramidPanic
             graphics.PreferredBackBufferWidth = 640;
             graphics.PreferredBackBufferHeight = 480;
             IsMouseVisible = true;
-            Window.Title = "Pyramid Panic Beta 0.000.00.000.010";
+            Window.Title = "Pyramid Panic 1.0";
         }
         
         protected override void Initialize()
