@@ -28,7 +28,7 @@ namespace PyramidPanic
                                      @"PlayScenePics\Level\Overlay540x448DoorsAreOpen",
                                      Vector2.Zero,
                                      'q');
-            this.overlay.Color = new Color(0, 0, 0, 80);
+            //this.overlay.Color = new Color(0, 0, 0, 80);
         }
 
         public void Update(GameTime gameTime)

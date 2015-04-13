@@ -34,6 +34,7 @@ namespace PyramidPanic
         private LevelCollisionPause levelCollisionPause;
         private LevelGameOver levelGameOver;
         private LevelNextLevel levelNextLevel;
+        private LevelDoorsOpen levelDoorsOpen;
 
 
         // Properties
@@ -87,6 +88,10 @@ namespace PyramidPanic
         {
             get { return this.levelNextLevel; }
         }
+        public LevelDoorsOpen LevelDoorsOpen
+        {
+            get { return this.levelDoorsOpen; }
+        }
 
 
         // Constructor
@@ -101,6 +106,7 @@ namespace PyramidPanic
             this.levelCollisionPause = new LevelCollisionPause(this);
             this.levelGameOver = new LevelGameOver(this);
             this.levelNextLevel = new LevelNextLevel(this);
+            this.levelDoorsOpen = new LevelDoorsOpen(this);
             this.levelState = this.levelPlay;
         }
 

@@ -46,7 +46,6 @@ namespace PyramidPanic
             this.level.Explorer.Update(gameTime);
             ExplorerManager.CollisionDetectScorpions();
             ExplorerManager.OpenDoors();
-
         }
 
         public void Draw(GameTime gameTime)

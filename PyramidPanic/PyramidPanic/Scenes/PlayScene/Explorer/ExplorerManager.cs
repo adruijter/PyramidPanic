@@ -166,9 +166,12 @@ namespace PyramidPanic
             }
         }
 
+        private static bool oldValueOpenDoors;
+
         public static void OpenDoors()
         {
-            if (Scores.OpenDoors)
+            
+            if (Scores.OpenDoors && !oldValueOpenDoors)
             {
                 for (int i=0; i < level.Block.GetLength(0); i++)
                 {
@@ -180,7 +183,9 @@ namespace PyramidPanic
                         }
                     }
                 }
+                level.LevelState = level.LevelDoorsOpen;
             }
+            oldValueOpenDoors = Scores.OpenDoors;
         }
     }
 }
